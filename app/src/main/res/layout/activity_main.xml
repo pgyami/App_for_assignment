@@ -31,17 +31,17 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting_button"
-            android:id="@+id/setting_button"
-            android:onClick="showSetting"
+            android:text="@string/start_button"
+            android:id="@+id/start_button"
+            android:onClick="showGame"
             android:layout_weight="0.25" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/start_button"
-            android:id="@+id/start_button"
-            android:onClick="showGame"
+            android:text="@string/setting_button"
+            android:id="@+id/setting_button"
+            android:onClick="showSetting"
             android:layout_weight="0.25" />
 
         <Button

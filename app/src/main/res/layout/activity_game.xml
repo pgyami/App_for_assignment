@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/round_time_progressBar"
-            android:max="50"
+            android:max="100"
             android:progress="0"
              />
 
@@ -42,22 +42,25 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
 
             <Button
-                android:layout_width="192dp"
+                android:layout_width="0dp"
                 android:layout_height="124dp"
                 android:text="@string/true_answer"
                 android:id="@+id/yes_button"
-                android:onClick="onCreate" />
+                android:onClick="geNextLevel"
+                android:layout_weight="1" />
 
             <Button
-                android:layout_width="189dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:text="@string/false_answer"
                 android:id="@+id/no_button"
-                android:onClick="showResult" />
+                android:onClick="showResult"
+                android:layout_weight="1" />
 
         </LinearLayout>
 

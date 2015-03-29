@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+
 
 public class GameActivity extends ActionBarActivity {
 
@@ -24,29 +26,8 @@ public class GameActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        level++;
-        TextView level_text = (TextView)findViewById(R.id.level_text);
-        level_text.setText(String.valueOf(level));
+        getNextLevel();
 
-        mProgressBar=(ProgressBar)findViewById(R.id.progressBar);
-        mProgressBar.setProgress(i);
-        mCountDownTimer=new CountDownTimer(3000,60) {
-
-            @Override
-            public void onTick(long millisUntilFinished) {
-                i++;
-                mProgressBar.setProgress(i);
-
-            }
-
-            @Override
-            public void onFinish() {
-                //Do what you want
-                i++;
-                mProgressBar.setProgress(50);
-            }
-        };
-        mCountDownTimer.start();
     }
 
 
@@ -73,7 +54,63 @@ public class GameActivity extends ActionBarActivity {
     }
 
     public void showResult(View clickedButton){
-        Intent activityIntent = new Intent(this, ResultActivity.class);
-        startActivity(activityIntent);
+        reload();
     }
+
+    private void startTimer(int time, int tick){
+        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        mProgressBar.setProgress(i);
+        mCountDownTimer=new CountDownTimer(time, tick) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                i++;
+                System.out.println(i + " - " +millisUntilFinished);
+                mProgressBar.setProgress(i);
+
+            }
+
+            @Override
+            public void onFinish() {
+                //Do what you want
+                //System.out.println("cac chinsu");
+                i++;
+                mProgressBar.setProgress(100);
+                reload();
+
+            }
+        };
+        mCountDownTimer.start();
+
+    }
+    private void reload(){
+        Intent activityIntent = new Intent(this, ResultActivity.class);
+       /* System.out.println("intent created");
+        activityIntent.putExtra("level", level);
+        System.out.println("bundle put");*/
+        startActivity(activityIntent);
+        //System.out.println("completed");
+
+    }
+
+    /*private Bundle createBundle(){
+        Bundle info = new Bundle();
+        info.putInt("level", level);
+        return info;
+    }*/
+    private void getNextLevel(){
+        i = 0;
+        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        mProgressBar.setProgress(i);
+        level++;
+        TextView level_text = (TextView)findViewById(R.id.level_text);
+        level_text.setText(String.valueOf(level));
+
+        startTimer(3000, 20);
+        System.out.println(mProgressBar.getProgress());
+
+
+
+    }
+
 }
