@@ -121,7 +121,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Global_Variable.HIGH_SCORE= Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
+        Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
         highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
     }
