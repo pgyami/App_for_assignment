@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/setting_title_text"
+            android:id="@+id/setting_title_text"
+             />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text="@string/time_setting_label"
+            android:id="@+id/time_setting_lable"
+             />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_seekBar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text="@string/adding_time_label"
+            android:id="@+id/addingtime_setting_label"
+             />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/extra_time_seekBar"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="@string/game_rank_label"
+            android:id="@+id/rank_game_lable"
+             />
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/easy"
+                android:id="@+id/easy_radioButton"
+
+                 />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/normal"
+                android:id="@+id/normal_radioButton"
+                 />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hard"
+                android:id="@+id/hard_radioButton"
+                 />
+        </RadioGroup>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:text="@string/save_button"
+            android:id="@+id/save_button"
+            android:onClick="showMain"
+             />
+
+    </LinearLayout>
+
+</LinearLayout>

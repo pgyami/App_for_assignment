@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="show level"
+            android:id="@+id/level_text"
+            android:layout_weight="0.09" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Question is writen here"
+            android:id="@+id/question_text"
+            android:layout_weight="0.62" />
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/round_time_progressBar"
+            android:max="50"
+            android:progress="0"
+             />
+
+        <ProgressBar
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/extra_time_progressBar"
+            android:max="50"
+            android:progress="0"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="192dp"
+                android:layout_height="124dp"
+                android:text="@string/true_answer"
+                android:id="@+id/yes_button"
+                android:onClick="onCreate" />
+
+            <Button
+                android:layout_width="189dp"
+                android:layout_height="match_parent"
+                android:text="@string/false_answer"
+                android:id="@+id/no_button"
+                android:onClick="showResult" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

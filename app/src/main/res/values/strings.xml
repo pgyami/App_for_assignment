@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">App_for_assignment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">Tính nhanh</string>
+    <string name="start_button">BẮT ĐẦU</string>
+    <string name="highscore_button">ĐIỂM CAO</string>
+    <string name="exit_button">NGHỈ THÔI</string>
+    <string name="setting_button">CÀI ĐẶT</string>
+    <string name="true_answer">ĐÚNG</string>
+    <string name="false_answer">SAI</string>
+    <string name="time_help_button">CỘNG THÊM GIỜ</string>
+    <string name="replay_button">CHƠI LẠI</string>
+    <string name="back_button">MÀN HÌNH CHÍNH</string>
+    <string name="share_button">Chia sẻ qua Facebook</string>
+    <string name="setting_title_text">TÙY CHỌN</string>
+    <string name="time_setting_label">Thời gian cho mỗi vòng</string>
+    <string name="adding_time_label">Thời gian cộng thêm</string>
+    <string name="game_rank_label">Độ khó</string>
+    <string name="easy">DỄ</string>
+    <string name="normal">BÌNH THƯỜNG</string>
+    <string name="hard">KHÓ</string>
+    <string name="save_button">LƯU</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_setting">SettingActivity</string>
+
+</resources>

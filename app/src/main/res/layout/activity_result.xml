@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="249dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your score will be show here"
+            android:id="@+id/result_text" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="95dp"
+                android:text="@string/replay_button"
+                android:onClick="showGame"
+                android:id="@+id/replay_button"
+                android:layout_weight="0.71" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/back_button"
+                android:onClick="showMain"
+                android:id="@+id/back_button"
+                android:layout_weight="0.28" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:text="@string/share_button"
+            android:id="@+id/share_button" />
+
+    </LinearLayout>
+
+</LinearLayout>
