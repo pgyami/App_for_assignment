@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 binh edit
+=======
+son viet: con cac
+>>>>>>> origin/master
