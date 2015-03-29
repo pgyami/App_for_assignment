@@ -3,12 +3,14 @@ package com.example.kuson.app_for_assignment;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.telephony.gsm.GsmCellLocation;
 import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,36 +30,39 @@ public class MainActivity extends ActionBarActivity {
 
         private String readfromFile(String filename) {
             String s="0";
-            try {
-                FileInputStream fileIn=openFileInput(filename);
-                InputStreamReader InputRead= new InputStreamReader(fileIn);
+            if(new File(Global_Variable.HIGH_SCORE_FILE_NAME).exists() ) {
+                try {
+                    System.out.print("why herre");
+                    FileInputStream fileIn = openFileInput(filename);
 
-                char[] inputBuffer= new char[100];
+                    InputStreamReader InputRead = new InputStreamReader(fileIn);
 
-                int charRead;
+                    char[] inputBuffer = new char[100];
 
-                while ((charRead=InputRead.read(inputBuffer))>0) {
-                    // char to string conversion
-                    String readstring=String.copyValueOf(inputBuffer,0,charRead);
-                    s +=readstring;
+                    int charRead;
+
+                    while ((charRead = InputRead.read(inputBuffer)) > 0) {
+                        // char to string conversion
+                        String readstring = String.copyValueOf(inputBuffer, 0, charRead);
+                        s += readstring;
+                    }
+                    InputRead.close();
+
+
+                } catch (IOException e) {
+                    System.out.println("Exception: File read failed: " + e.toString());
                 }
-                InputRead.close();
-
-
-            }
-            catch (IOException e) {
-                System.out.println("Exception: File read failed: " + e.toString());
             }
             return s;
         }
 
 
 
-    private class Readdecfile implements View.OnClickListener{
-        private String readfromFile(String filename) {
+
+        private String readfromFiledec(String filename) {
             String s="";
             try {
-                FileInputStream fileIn=openFileInput("config.conf");
+                FileInputStream fileIn=openFileInput(filename);
                 InputStreamReader InputRead= new InputStreamReader(fileIn);
 
                 char[] inputBuffer= new char[100];
@@ -82,7 +87,7 @@ public class MainActivity extends ActionBarActivity {
             String  plaintext="";
             try {
                 Cipher cipherengine = Cipher.getInstance("AES");
-                byte[] string_decode = Base64.decode("/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA", 1);
+                byte[] string_decode = Base64.decode(key, 1);
                 SecretKey secretKey = new SecretKeySpec(string_decode, 0, string_decode.length, "AES");
                 cipherengine.init(Cipher.DECRYPT_MODE, secretKey);
                 plaintext = new String(cipherengine.doFinal(ciphertext));
@@ -100,21 +105,19 @@ public class MainActivity extends ActionBarActivity {
             }
             return plaintext;
         }
-        public String read (){
-            String str = readfromFile("config.txt");
-            byte[] ciphertext = Base64.decode(str, 1);
-            String plaintext = decrype(ciphertext,"face_key");
-            System.out.println(plaintext);
+        public String readdec (){
+            String plaintext="";
+            try {
+                String str = readfromFile(Global_Variable.CONFIG_FILE_NAME);
+                byte[] ciphertext = Base64.decode(str, 1);
+                plaintext = decrype(ciphertext, "/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
+                System.out.println(plaintext);
+            }
+            catch (Exception e){System.out.println(e.getMessage());}
             return plaintext;
         }
-        @Override
-        public void onClick(View arg0){
-            String msg = read();
-            System.out.println("read successfully");
 
 
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +127,25 @@ public class MainActivity extends ActionBarActivity {
         Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
         highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
+        String conf = readdec();
+        //String delims = "[,]";
+       // String[] Parser = conf.split(delims);
+        /*if(Parser.length>=7){
+        if (Parser[0]!="")
+            Global_Variable.CONFIG_FILE_NAME = Parser[0];
+        if (Parser[1]!="")
+            Global_Variable.HIGH_SCORE_FILE_NAME = Parser[1];
+        if (Parser[2]!="")
+            Global_Variable.HIGH_SCORE = Integer.parseInt(Parser[2]);
+        if (Parser[3]!="")
+            Global_Variable.TOTAL_TIME = Double.parseDouble(Parser[3]);
+        if (Parser[4]!="")
+            Global_Variable.EXTRA_TIME = Double.parseDouble(Parser[4]);
+        if (Parser[5]!="")
+            Global_Variable.DECREASE_TIME = Double.parseDouble(Parser[5]);
+        if (Parser[6]!="")
+            Global_Variable.DIFFICULTY = Integer.parseInt(Parser[6]);
+    }*/
     }
 
 

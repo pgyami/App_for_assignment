@@ -23,10 +23,10 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class SettingActivity extends ActionBarActivity {
-    private class Writedecfile implements View.OnClickListener{
+
         private void writeToFile(String data) {
             try {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("config.conf", Context.MODE_PRIVATE));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(Global_Variable.CONFIG_FILE_NAME, Context.MODE_PRIVATE));
                 outputStreamWriter.write(data);
                 outputStreamWriter.close();
             }
@@ -36,7 +36,7 @@ public class SettingActivity extends ActionBarActivity {
         }
 
         public void write (String msg){
-            byte[] ciphertext= encrypt(msg,"fake_key");
+            byte[] ciphertext= encrypt(msg,"/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
             String enc = Base64.encodeToString(ciphertext, 1);
             writeToFile(enc);
         }
@@ -45,7 +45,7 @@ public class SettingActivity extends ActionBarActivity {
             try {
 
                 byte[] string_decode;//= new byte[100];
-                string_decode= Base64.decode("/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA", 0);
+                string_decode= Base64.decode(key, 0);
                 SecretKey secretKey = new SecretKeySpec(string_decode, 0, string_decode.length, "AES");
                 Cipher cipherengine = Cipher.getInstance("AES");
                 cipherengine.init(Cipher.ENCRYPT_MODE, secretKey);
@@ -69,13 +69,10 @@ public class SettingActivity extends ActionBarActivity {
             return cipherText;
         }
 
-        @Override
-        public void onClick(View arg0){
-            write("this is the fucking i want to write");
-            System.out.println("write successfully");
 
-        }
-    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +104,8 @@ public class SettingActivity extends ActionBarActivity {
 
     public void showMain(View clickedButton){
         Intent activityIntent = new Intent(this, MainActivity.class);
+        //Edit here when you create new variable in GLOBAL_VARIABLE class
+        write(Global_Variable.CONFIG_FILE_NAME+","+Global_Variable.HIGH_SCORE_FILE_NAME+","+Global_Variable.HIGH_SCORE+","+Global_Variable.TOTAL_TIME+","+Global_Variable.EXTRA_TIME+","+Global_Variable.DECREASE_TIME+","+Global_Variable.DIFFICULTY);
         startActivity(activityIntent);
     }
 }

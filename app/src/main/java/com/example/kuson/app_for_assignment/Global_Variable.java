@@ -1,9 +1,11 @@
 package com.example.kuson.app_for_assignment;
 
+import java.io.Serializable;
+
 /**
  * Created by 51100_000 on 29/03/2015.
  */
-public class Global_Variable
+public class Global_Variable implements Serializable
 {
     public static String HIGH_SCORE_FILE_NAME = "highscore.txt";
     public static int LEVEL = 0;
