@@ -28,7 +28,7 @@ public class GameActivity extends ActionBarActivity {
         TextView level_text = (TextView)findViewById(R.id.level_text);
         level_text.setText(String.valueOf(level));
 
-        mProgressBar=(ProgressBar)findViewById(R.id.progressBar);
+        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
         mProgressBar.setProgress(i);
         mCountDownTimer=new CountDownTimer(3000,60) {
 
