@@ -7,6 +7,7 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,11 +24,12 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class MainActivity extends ActionBarActivity {
-    private class Readfile implements View.OnClickListener{
+
+
         private String readfromFile(String filename) {
-            String s="";
+            String s="0";
             try {
-                FileInputStream fileIn=openFileInput("config.conf");
+                FileInputStream fileIn=openFileInput(filename);
                 InputStreamReader InputRead= new InputStreamReader(fileIn);
 
                 char[] inputBuffer= new char[100];
@@ -49,18 +51,7 @@ public class MainActivity extends ActionBarActivity {
             return s;
         }
 
-        public String read (){
-            String str = readfromFile("highscore.txt");
-            return str;
-        }
-        @Override
-        public void onClick(View arg0){
-            String msg = read();
 
-
-
-        }
-    }
 
     private class Readdecfile implements View.OnClickListener{
         private String readfromFile(String filename) {
@@ -128,7 +119,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+        Global_Variable.HIGH_SCORE= Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
+        TextView highscore = (TextView) findViewById(R.id.hiScore_text);
+        highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
     }
 
 
