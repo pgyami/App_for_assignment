@@ -45,15 +45,11 @@ public class ResultActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-       /* Intent intent = getIntent();
-        Bundle info = intent.getExtras();
-        if (info != null)
-        {
-            TextView score_text = (TextView)findViewById(R.id.score_text);
-            score_text.setText(info.getInt("level"));
-        }*/
         TextView score_text = (TextView)findViewById(R.id.score_text);
-       // score_text.setText(getIntent().getExtras().getInt("level"));
+        score_text.setText(String.valueOf(Global_Variable.LEVEL));
+
+        TextView hiscore_text = (TextView)findViewById(R.id.hiscore_text);
+        hiscore_text.setText(String.valueOf(Global_Variable.HIGH_SCORE));
     }
 
 

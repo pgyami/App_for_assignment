@@ -51,7 +51,7 @@
                 android:layout_height="124dp"
                 android:text="@string/true_answer"
                 android:id="@+id/yes_button"
-                android:onClick="geNextLevel"
+                android:onClick="showNextLevel"
                 android:layout_weight="1" />
 
             <Button

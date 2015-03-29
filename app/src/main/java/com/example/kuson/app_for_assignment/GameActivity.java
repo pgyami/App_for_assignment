@@ -8,10 +8,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+
+import javax.microedition.khronos.opengles.GL;
 
 
 public class GameActivity extends ActionBarActivity {
@@ -19,13 +22,13 @@ public class GameActivity extends ActionBarActivity {
     ProgressBar mProgressBar;
     CountDownTimer mCountDownTimer;
     int i=0;
-    int level = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
+        Global_Variable.LEVEL = 0;
 
         getNextLevel();
 
@@ -67,7 +70,7 @@ public class GameActivity extends ActionBarActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 i++;
-                System.out.println(i + " - " +millisUntilFinished);
+                //System.out.println(i + " - " +millisUntilFinished);
                 mProgressBar.setProgress(i);
 
             }
@@ -84,15 +87,11 @@ public class GameActivity extends ActionBarActivity {
         };
         mCountDownTimer.start();
 
+
     }
     private void reload(){
         Intent activityIntent = new Intent(this, ResultActivity.class);
-       /* System.out.println("intent created");
-        activityIntent.putExtra("level", level);
-        System.out.println("bundle put");*/
         startActivity(activityIntent);
-        //System.out.println("completed");
-
     }
 
     /*private Bundle createBundle(){
@@ -102,17 +101,20 @@ public class GameActivity extends ActionBarActivity {
     }*/
     private void getNextLevel(){
         i = 0;
+
         mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
         mProgressBar.setProgress(i);
-        level++;
+        Global_Variable.LEVEL++;
         TextView level_text = (TextView)findViewById(R.id.level_text);
-        level_text.setText(String.valueOf(level));
+        level_text.setText(String.valueOf(Global_Variable.LEVEL));
 
         startTimer(3000, 20);
         System.out.println(mProgressBar.getProgress());
 
+    }
 
-
+    public void showNextLevel(View clickedButton){
+        getNextLevel();
     }
 
 }
