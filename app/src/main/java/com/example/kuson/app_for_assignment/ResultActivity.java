@@ -1,5 +1,6 @@
 package com.example.kuson.app_for_assignment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,9 +9,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 
 public class ResultActivity extends ActionBarActivity {
 
+    private class Writefile implements View.OnClickListener{
+        private void writeToFile(String data) {
+            try {
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("highscore.txt", Context.MODE_PRIVATE));
+                outputStreamWriter.write(data);
+                outputStreamWriter.close();
+            }
+            catch (IOException e) {
+                System.out.println("Exception: File write failed: " + e.toString());
+            }
+        }
+
+        public void write (String msg){
+            ;
+            writeToFile(msg);
+        }
+
+
+        @Override
+        public void onClick(View arg0){
+            write("this is the fucking i want to write");
+            System.out.println("write successfully");
+
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
