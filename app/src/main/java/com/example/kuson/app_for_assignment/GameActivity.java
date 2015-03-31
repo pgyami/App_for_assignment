@@ -109,7 +109,7 @@ public class GameActivity extends ActionBarActivity {
         level_text.setText(String.valueOf(Global_Variable.LEVEL));
 
         startTimer(3000, 20);
-        System.out.println(mProgressBar.getProgress());
+
 
     }
 
