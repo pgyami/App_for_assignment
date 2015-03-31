@@ -16,8 +16,9 @@
     <string name="back_button">MÀN HÌNH CHÍNH</string>
     <string name="share_button">Chia sẻ qua Facebook</string>
     <string name="setting_title_text">TÙY CHỌN</string>
-    <string name="time_setting_label">Thời gian cho mỗi vòng</string>
-    <string name="adding_time_label">Thời gian cộng thêm</string>
+    <string name="time_setting_label">Thời gian cho mỗi vòng :</string>
+    <string name="adding_time_label">Thời gian cộng thêm :</string>
+    <string name="decrease_time_label">Thời gian giảm mỗi vòng :</string>
     <string name="game_rank_label">Độ khó</string>
     <string name="easy">DỄ</string>
     <string name="normal">BÌNH THƯỜNG</string>

@@ -8,6 +8,8 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -23,6 +25,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 public class SettingActivity extends ActionBarActivity {
+
 
         private void writeToFile(String data) {
             try {
@@ -79,6 +82,75 @@ public class SettingActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        final SeekBar roundtime_seekBar = (SeekBar)findViewById(R.id.time_seekBar);
+        final SeekBar extratime_seekBar = (SeekBar)findViewById(R.id.extra_time_seekBar);
+        final SeekBar decreasetime_seekBar = (SeekBar)findViewById(R.id.decrease_time_seekBar);
+
+        final TextView roundtime_text = (TextView)findViewById(R.id.time_setting_lable);
+        final TextView extratime_text = (TextView)findViewById(R.id.extratime_setting_label);
+        final TextView decreasetime_text = (TextView)findViewById(R.id.decrease_time_label);
+
+        roundtime_seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            double current_progress;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                current_progress = progress/5.0;
+                roundtime_text.setText(getString(R.string.time_setting_label)+ String.valueOf(current_progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Global_Variable.TOTAL_TIME = current_progress;
+            }
+        });
+
+        extratime_seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            double current_progress;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                current_progress = progress/5.0;
+                extratime_text.setText(getString(R.string.adding_time_label)+ String.valueOf(current_progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Global_Variable.EXTRA_TIME = current_progress;
+            }
+        });
+
+        decreasetime_seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            double current_progress;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                current_progress = progress/100.0;
+                decreasetime_text.setText(getString(R.string.decrease_time_label)+ String.valueOf(current_progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Global_Variable.DECREASE_TIME = current_progress;
+            }
+        });
+
+        roundtime_seekBar.setProgress((int)(Global_Variable.TOTAL_TIME*5));
+        extratime_seekBar.setProgress((int)(Global_Variable.EXTRA_TIME*5));
+        decreasetime_seekBar.setProgress((int)(Global_Variable.DECREASE_TIME*100));
+
     }
 
 

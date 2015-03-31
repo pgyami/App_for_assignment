@@ -31,7 +31,8 @@
 
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_result" >
+            android:label="@string/title_activity_result"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -41,7 +42,8 @@
 
         <activity
             android:name=".SettingActivity"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

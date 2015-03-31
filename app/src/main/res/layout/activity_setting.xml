@@ -25,20 +25,34 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/time_seekBar" />
+            android:id="@+id/time_seekBar"
+            android:max="50"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="27dp"
-            android:text="@string/adding_time_label"
-            android:id="@+id/addingtime_setting_label"
+            android:text= "@string/adding_time_label"
+            android:id="@+id/extratime_setting_label"
              />
 
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/extra_time_seekBar"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:max="50"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:id="@+id/decrease_time_label"
+            android:text="@string/decrease_time_label" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/decrease_time_seekBar"
+            android:max="50"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -48,7 +62,7 @@
              />
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RadioButton

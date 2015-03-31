@@ -20,8 +20,8 @@ import javax.microedition.khronos.opengles.GL;
 public class GameActivity extends ActionBarActivity {
 
     ProgressBar mProgressBar;
-    int round_time = (int)Global_Variable.TOTAL_TIME*1000;
-    int clock_tick = 20;
+    int round_time = (int)(Global_Variable.TOTAL_TIME*1000);
+    int clock_tick = (int)(round_time/Global_Variable.MAX_PROGRESSBAR);
     boolean time_cancel = true;
 
     CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick) {
