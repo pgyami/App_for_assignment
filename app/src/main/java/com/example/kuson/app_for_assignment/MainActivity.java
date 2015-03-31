@@ -135,22 +135,20 @@ public class MainActivity extends ActionBarActivity {
         System.out.println("Configuration content:" +conf);
         String delims = "[,]";
         String[] Parser = conf.split(delims);
-        if(Parser.length>=7){
+        if(Parser.length==6){
         if (Parser[0]!="")
             Global_Variable.CONFIG_FILE_NAME = Parser[0];
         if (Parser[1]!="")
             Global_Variable.HIGH_SCORE_FILE_NAME = Parser[1];
         if (Parser[2]!="")
-            Global_Variable.HIGH_SCORE = Integer.parseInt(Parser[2]);
+            Global_Variable.TOTAL_TIME = Double.parseDouble(Parser[2]);
         if (Parser[3]!="")
-            Global_Variable.TOTAL_TIME = Double.parseDouble(Parser[3]);
+            Global_Variable.EXTRA_TIME = Double.parseDouble(Parser[3]);
         if (Parser[4]!="")
-            Global_Variable.EXTRA_TIME = Double.parseDouble(Parser[4]);
+            Global_Variable.DECREASE_TIME = Double.parseDouble(Parser[4]);
         if (Parser[5]!="")
-            Global_Variable.DECREASE_TIME = Double.parseDouble(Parser[5]);
-        if (Parser[6]!="")
-            Global_Variable.DIFFICULTY = Integer.parseInt(Parser[6]);
-            System.out.println(Parser[0] + Parser[1]+ Parser[2]+ Parser[3]+ Parser[4]+ Parser[5]+ Parser[6]);
+            Global_Variable.DIFFICULTY = Integer.parseInt(Parser[5]);
+
     }
     }
 
