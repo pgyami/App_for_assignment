@@ -24,6 +24,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="55dp"
+                android:textSize="40sp"
                 android:id="@+id/score_text"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -45,6 +46,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="55dp"
+                android:textSize="40sp"
                 android:id="@+id/hiscore_text"
                 android:singleLine="true"
                 android:layout_weight="1" />
