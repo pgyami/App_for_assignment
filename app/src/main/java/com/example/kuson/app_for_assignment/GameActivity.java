@@ -1,4 +1,4 @@
-﻿package com.example.kuson.app_for_assignment;
+package com.example.kuson.app_for_assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,8 +32,7 @@ public class GameActivity extends ActionBarActivity {
 
         @Override
         public void onFinish() {
-            //Do what you want
-            //System.out.println("cac chinsu");
+
             if (!time_cancel)
             i++;
             mProgressBar.setProgress(100);
@@ -61,13 +60,13 @@ public class GameActivity extends ActionBarActivity {
         int gen_result=generate_math.getResult();
 
 
-        String text ="";
+        String text;
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
-            text = "Đúng";}
+            text = "dung";}
         else{ test = false;
-            text = "Sai";}
+            text = "sai";}
 
         if(generate_math.getNumber2()<0)
             question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
@@ -104,7 +103,7 @@ public class GameActivity extends ActionBarActivity {
 
     public void showResult(View clickedButton){
 
-        if(test == true)reload();   //Finish Page
+        if(test)    reload();   //Finish Page
          else getNextLevel(); //Reload
     }
 
@@ -140,13 +139,13 @@ public class GameActivity extends ActionBarActivity {
         int gen_result=generate_math.getResult();
 
 
-        String text ="";
+        String text;
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
-            text = "Đúng";}
+            text = "dung";}
         else{ test = false;
-            text = "Sai";}
+            text = "sai";}
 
         if(generate_math.getNumber2()<0)
             question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
@@ -157,7 +156,7 @@ public class GameActivity extends ActionBarActivity {
 
     public void showNextLevel(View clickedButton){
         time_cancel = true;
-        if(test == true) getNextLevel();   //Finish Page
+        if(test) getNextLevel();   //Finish Page
         else reload(); //Reload
     }
 
