@@ -179,7 +179,7 @@ public class SettingActivity extends ActionBarActivity {
     public void showMain(View clickedButton){
         Intent activityIntent = new Intent(this, MainActivity.class);
         //Edit here when you create new variable in GLOBAL_VARIABLE class
-        write(Global_Variable.CONFIG_FILE_NAME+","+Global_Variable.HIGH_SCORE_FILE_NAME+","+Global_Variable.HIGH_SCORE+","+Global_Variable.TOTAL_TIME+","+Global_Variable.EXTRA_TIME+","+Global_Variable.DECREASE_TIME+","+Global_Variable.DIFFICULTY);
+        write(Global_Variable.CONFIG_FILE_NAME+","+Global_Variable.HIGH_SCORE_FILE_NAME+","+Global_Variable.TOTAL_TIME+","+Global_Variable.EXTRA_TIME+","+Global_Variable.DECREASE_TIME+","+Global_Variable.DIFFICULTY);
         startActivity(activityIntent);
     }
 }

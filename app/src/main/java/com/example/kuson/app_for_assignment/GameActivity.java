@@ -1,4 +1,4 @@
-package com.example.kuson.app_for_assignment;
+﻿package com.example.kuson.app_for_assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,6 +116,7 @@ public class GameActivity extends ActionBarActivity {
     private void reload(){                      //Finish Page
 
         mCountDownTimer.cancel();
+
         Intent activityIntent = new Intent(this, ResultActivity.class);
         startActivity(activityIntent);
     }
