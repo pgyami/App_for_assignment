@@ -20,7 +20,31 @@ import javax.microedition.khronos.opengles.GL;
 public class GameActivity extends ActionBarActivity {
 
     ProgressBar mProgressBar;
-    CountDownTimer mCountDownTimer;
+    int round_time = (int)Global_Variable.TOTAL_TIME*1000;
+    int clock_tick = 20;
+    boolean time_cancel = true;
+
+    CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick) {
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            i++;
+            //System.out.println(i + " - " +millisUntilFinished);
+            mProgressBar.setProgress(i);
+
+        }
+
+        @Override
+        public void onFinish() {
+            //Do what you want
+            //System.out.println("cac chinsu");
+            if (!time_cancel)
+            i++;
+            mProgressBar.setProgress(100);
+            reload();
+
+        }
+    };
     int i=0;
 
 
@@ -29,6 +53,10 @@ public class GameActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         Global_Variable.LEVEL = 0;
+
+        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        mProgressBar.setProgress(i);
+
 
         getNextLevel();
 
@@ -63,57 +91,33 @@ public class GameActivity extends ActionBarActivity {
     }
 
     private void startTimer(int time, int tick){
-        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
-        mProgressBar.setProgress(i);
-        mCountDownTimer=new CountDownTimer(time, tick) {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                i++;
-                //System.out.println(i + " - " +millisUntilFinished);
-                mProgressBar.setProgress(i);
-
-            }
-
-            @Override
-            public void onFinish() {
-                //Do what you want
-                //System.out.println("cac chinsu");
-                i++;
-                mProgressBar.setProgress(100);
-                reload();
-
-            }
-        };
         mCountDownTimer.start();
-
-
+        time_cancel = false;
     }
     private void reload(){
+        //mCountDownTimer.cancel();
         Intent activityIntent = new Intent(this, ResultActivity.class);
         startActivity(activityIntent);
     }
 
-    /*private Bundle createBundle(){
-        Bundle info = new Bundle();
-        info.putInt("level", level);
-        return info;
-    }*/
     private void getNextLevel(){
         i = 0;
 
-        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+       // mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        mCountDownTimer.cancel();
         mProgressBar.setProgress(i);
         Global_Variable.LEVEL++;
         TextView level_text = (TextView)findViewById(R.id.level_text);
         level_text.setText(String.valueOf(Global_Variable.LEVEL));
 
         startTimer(3000, 20);
-        System.out.println(mProgressBar.getProgress());
+       // System.out.println(mProgressBar.getProgress());
 
     }
 
     public void showNextLevel(View clickedButton){
+        time_cancel = true;
         getNextLevel();
     }
 
