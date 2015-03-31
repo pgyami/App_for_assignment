@@ -8,6 +8,8 @@ import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -26,10 +28,15 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class SettingActivity extends ActionBarActivity {
 
+        private double round_time_tmp = Global_Variable.TOTAL_TIME;
+        private double extra_time_tmp = Global_Variable.EXTRA_TIME;
+        private double decrease_time_tmp = Global_Variable.DECREASE_TIME;
+        private int difficult_tmp = Global_Variable.DIFFICULTY;
 
-        private void writeToFile(String data) {
+
+        private void writeToFile(String data,String filename) {
             try {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(Global_Variable.CONFIG_FILE_NAME, Context.MODE_PRIVATE));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(filename, Context.MODE_PRIVATE));
                 outputStreamWriter.write(data);
                 outputStreamWriter.close();
             }
@@ -43,7 +50,7 @@ public class SettingActivity extends ActionBarActivity {
             String enc = Base64.encodeToString(ciphertext, 1);
             byte[] dec = Base64.decode(enc,0);
             System.out.println(enc);
-            writeToFile(enc);
+            writeToFile(enc,Global_Variable.CONFIG_FILE_NAME);
         }
         public byte[] encrypt(String data, String key){
             byte[] cipherText = new byte[0];
@@ -82,6 +89,7 @@ public class SettingActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
         final SeekBar roundtime_seekBar = (SeekBar)findViewById(R.id.time_seekBar);
         final SeekBar extratime_seekBar = (SeekBar)findViewById(R.id.extra_time_seekBar);
         final SeekBar decreasetime_seekBar = (SeekBar)findViewById(R.id.decrease_time_seekBar);
@@ -105,7 +113,7 @@ public class SettingActivity extends ActionBarActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Global_Variable.TOTAL_TIME = current_progress;
+                round_time_tmp = current_progress;
             }
         });
 
@@ -124,7 +132,7 @@ public class SettingActivity extends ActionBarActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Global_Variable.EXTRA_TIME = current_progress;
+                extra_time_tmp = current_progress;
             }
         });
 
@@ -143,7 +151,7 @@ public class SettingActivity extends ActionBarActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                Global_Variable.DECREASE_TIME = current_progress;
+                decrease_time_tmp = current_progress;
             }
         });
 
@@ -151,8 +159,52 @@ public class SettingActivity extends ActionBarActivity {
         extratime_seekBar.setProgress((int)(Global_Variable.EXTRA_TIME*5));
         decreasetime_seekBar.setProgress((int)(Global_Variable.DECREASE_TIME*100));
 
+        RadioButton ease_mode = (RadioButton)findViewById(R.id.easy_radioButton);
+        RadioButton normal_mode = (RadioButton)findViewById(R.id.normal_radioButton);
+        RadioButton hard_mode = (RadioButton)findViewById(R.id.hard_radioButton);
+
+        switch (difficult_tmp)
+        {
+            case 1:
+                ease_mode.setChecked(true);
+                break;
+            case 2:
+                normal_mode.setChecked(true);
+                break;
+            case 3:
+                hard_mode.setChecked(true);
+                break;
+            default:
+                break;
+        }
+
     }
 
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.easy_radioButton:
+                if (checked)
+                    difficult_tmp = 1;
+                    break;
+            case R.id.normal_radioButton:
+                if (checked)
+                    difficult_tmp = 2;
+                    break;
+            case R.id.hard_radioButton:
+                if (checked)
+                    difficult_tmp = 3;
+                    break;
+        }
+    }
+
+    public void resetHiscore(View view) {
+        if (((CheckBox) view).isPressed())
+            Global_Variable.HIGH_SCORE = 0;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -177,9 +229,17 @@ public class SettingActivity extends ActionBarActivity {
     }
 
     public void showMain(View clickedButton){
-        Intent activityIntent = new Intent(this, MainActivity.class);
+      //  Intent activityIntent = new Intent(this, MainActivity.class);
+
+        Global_Variable.DIFFICULTY = difficult_tmp;
+        Global_Variable.DECREASE_TIME = decrease_time_tmp;
+        Global_Variable.EXTRA_TIME = extra_time_tmp;
+        Global_Variable.TOTAL_TIME = round_time_tmp;
+       // System.out.println(Global_Variable.HIGH_SCORE);
+        writeToFile("0",Global_Variable.HIGH_SCORE_FILE_NAME);
         //Edit here when you create new variable in GLOBAL_VARIABLE class
-        write(Global_Variable.CONFIG_FILE_NAME+","+Global_Variable.HIGH_SCORE_FILE_NAME+","+Global_Variable.TOTAL_TIME+","+Global_Variable.EXTRA_TIME+","+Global_Variable.DECREASE_TIME+","+Global_Variable.DIFFICULTY);
-        startActivity(activityIntent);
+        write(Global_Variable.CONFIG_FILE_NAME + "," + Global_Variable.HIGH_SCORE_FILE_NAME + "," + Global_Variable.TOTAL_TIME + "," + Global_Variable.EXTRA_TIME + "," + Global_Variable.DECREASE_TIME + "," + Global_Variable.DIFFICULTY);
+       // startActivity(activityIntent);
+        finish();
     }
 }

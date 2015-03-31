@@ -152,8 +152,16 @@ public class MainActivity extends ActionBarActivity {
     }
     }
 
-
     @Override
+    protected void onResume() {
+        super.onResume();
+        TextView highscore = (TextView) findViewById(R.id.hiScore_text);
+        highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
+
+    }
+
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -182,6 +190,13 @@ public class MainActivity extends ActionBarActivity {
 
     public void showSetting(View clickedButton){
         Intent activityIntent = new Intent(this, SettingActivity.class);
-        startActivity(activityIntent);
+        startActivityForResult(activityIntent, 0);
+    }
+
+    public void Exit(View clickeadButton)
+    {
+        finish();
+        System.exit(0);
+
     }
 }

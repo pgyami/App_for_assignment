@@ -9,7 +9,7 @@ public class Global_Variable
     public static String HIGH_SCORE_FILE_NAME = "highscore.txt";
     public static int LEVEL = 0;
     public static int HIGH_SCORE = 0;
-    public static int DIFFICULTY = 1;
+    public static int DIFFICULTY = 2;
     public static double TOTAL_TIME = 3;
     public static double EXTRA_TIME = 2;
     public static int MAX_PROGRESSBAR = 100;

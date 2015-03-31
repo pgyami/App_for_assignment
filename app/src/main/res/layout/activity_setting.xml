@@ -69,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/easy"
+                android:onClick="onRadioButtonClicked"
                 android:id="@+id/easy_radioButton"
 
                  />
@@ -77,6 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/normal"
+                android:onClick="onRadioButtonClicked"
                 android:id="@+id/normal_radioButton"
                  />
 
@@ -84,9 +86,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/hard"
+                android:onClick="onRadioButtonClicked"
                 android:id="@+id/hard_radioButton"
                  />
         </RadioGroup>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reset_hiscore_checkBox"
+            android:text="@string/reset_hiscore_label"
+            android:onClick="resetHiscore"
+            android:singleLine="true" />
 
         <Button
             android:layout_width="match_parent"

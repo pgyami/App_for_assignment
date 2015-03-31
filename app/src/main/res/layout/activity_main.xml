@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:text="@string/exit_button"
             android:id="@+id/exit_button"
+            android:onClick="Exit"
             android:layout_weight="0.25" />
 
     </LinearLayout>

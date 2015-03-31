@@ -74,7 +74,8 @@ public class ResultActivity extends ActionBarActivity {
     }
 
     public void showMain(View clickedButton){
-        Intent activityIntent = new Intent(this, MainActivity.class);
-        startActivity(activityIntent);
+        //Intent activityIntent = new Intent(this, MainActivity.class);
+        //startActivity(activityIntent);
+        finish();
     }
 }
