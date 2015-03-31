@@ -30,9 +30,9 @@ public class MainActivity extends ActionBarActivity {
 
         private String readfromFile(String filename) {
             String s="0";
-            if(new File(Global_Variable.HIGH_SCORE_FILE_NAME).exists() ) {
+
                 try {
-                    System.out.print("why herre");
+
                     FileInputStream fileIn = openFileInput(filename);
 
                     InputStreamReader InputRead = new InputStreamReader(fileIn);
@@ -52,7 +52,8 @@ public class MainActivity extends ActionBarActivity {
                 } catch (IOException e) {
                     System.out.println("Exception: File read failed: " + e.toString());
                 }
-            }
+
+
             return s;
         }
 
@@ -108,9 +109,12 @@ public class MainActivity extends ActionBarActivity {
         public String readdec (){
             String plaintext="";
             try {
-                String str = readfromFile(Global_Variable.CONFIG_FILE_NAME);
+                String str = readfromFiledec(Global_Variable.CONFIG_FILE_NAME);
+                System.out.println("Decrypted configuration"+ str);
                 byte[] ciphertext = Base64.decode(str, 1);
-                plaintext = decrype(ciphertext, "/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
+                System.out.println("Decrypted configuration "+ ciphertext);
+                plaintext = decrype(ciphertext,"/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
+
                 System.out.println(plaintext);
             }
             catch (Exception e){System.out.println(e.getMessage());}
@@ -128,9 +132,10 @@ public class MainActivity extends ActionBarActivity {
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
         highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
         String conf = readdec();
-        //String delims = "[,]";
-       // String[] Parser = conf.split(delims);
-        /*if(Parser.length>=7){
+        System.out.println("Configuration content:" +conf);
+        String delims = "[,]";
+        String[] Parser = conf.split(delims);
+        if(Parser.length>=7){
         if (Parser[0]!="")
             Global_Variable.CONFIG_FILE_NAME = Parser[0];
         if (Parser[1]!="")
@@ -145,7 +150,8 @@ public class MainActivity extends ActionBarActivity {
             Global_Variable.DECREASE_TIME = Double.parseDouble(Parser[5]);
         if (Parser[6]!="")
             Global_Variable.DIFFICULTY = Integer.parseInt(Parser[6]);
-    }*/
+            System.out.println(Parser[0] + Parser[1]+ Parser[2]+ Parser[3]+ Parser[4]+ Parser[5]+ Parser[6]);
+    }
     }
 
 

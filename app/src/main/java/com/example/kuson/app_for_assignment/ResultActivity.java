@@ -15,31 +15,19 @@ import java.io.OutputStreamWriter;
 
 public class ResultActivity extends ActionBarActivity {
 
-    private class Writefile implements View.OnClickListener{
+
         private void writeToFile(String data) {
             try {
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("highscore.txt", Context.MODE_PRIVATE));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(Global_Variable.HIGH_SCORE_FILE_NAME, Context.MODE_PRIVATE));
                 outputStreamWriter.write(data);
                 outputStreamWriter.close();
+                System.out.println("write highscore successfull");
             }
             catch (IOException e) {
                 System.out.println("Exception: File write failed: " + e.toString());
             }
         }
 
-        public void write (String msg){
-            ;
-            writeToFile(msg);
-        }
-
-
-        @Override
-        public void onClick(View arg0){
-            write("this is the fucking i want to write");
-            System.out.println("write successfully");
-
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +37,9 @@ public class ResultActivity extends ActionBarActivity {
         score_text.setText(String.valueOf(Global_Variable.LEVEL));
 
         TextView hiscore_text = (TextView)findViewById(R.id.hiscore_text);
+        if(Global_Variable.LEVEL>Global_Variable.HIGH_SCORE)
+            Global_Variable.HIGH_SCORE=Global_Variable.LEVEL;
+        writeToFile(""+Global_Variable.HIGH_SCORE);
         hiscore_text.setText(String.valueOf(Global_Variable.HIGH_SCORE));
     }
 
