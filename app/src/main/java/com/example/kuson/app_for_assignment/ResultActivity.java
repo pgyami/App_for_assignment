@@ -38,9 +38,10 @@ public class ResultActivity extends ActionBarActivity {
 
         TextView hiscore_text = (TextView)findViewById(R.id.hiscore_text);
         if(Global_Variable.LEVEL>Global_Variable.HIGH_SCORE)
-        { Global_Variable.HIGH_SCORE=Global_Variable.LEVEL;
-        writeToFile(""+Global_Variable.HIGH_SCORE);}
-        System.out.println(Global_Variable.HIGH_SCORE);
+
+        {Global_Variable.HIGH_SCORE=Global_Variable.LEVEL;
+            writeToFile(""+Global_Variable.HIGH_SCORE);}
+
         hiscore_text.setText(String.valueOf(Global_Variable.HIGH_SCORE));
     }
 

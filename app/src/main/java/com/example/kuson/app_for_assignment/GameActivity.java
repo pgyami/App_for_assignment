@@ -96,8 +96,9 @@ public class GameActivity extends ActionBarActivity {
         time_cancel = false;
     }
     private void reload(){
-        //mCountDownTimer.cancel();
-        System.out.println(Global_Variable.HIGH_SCORE);
+
+        mCountDownTimer.cancel();
+
         Intent activityIntent = new Intent(this, ResultActivity.class);
         startActivity(activityIntent);
     }
