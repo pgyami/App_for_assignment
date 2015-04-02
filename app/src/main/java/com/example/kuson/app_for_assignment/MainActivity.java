@@ -7,8 +7,10 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,9 +25,9 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
 
-
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements SimpleGestureListener{
 
 
         private String readfromFile(String filename) {
@@ -56,10 +58,6 @@ public class MainActivity extends ActionBarActivity {
 
             return s;
         }
-
-
-
-
         private String readfromFiledec(String filename) {
             String s="";
             try {
@@ -121,12 +119,12 @@ public class MainActivity extends ActionBarActivity {
             return plaintext;
         }
 
-
-
+    private SimpleGestureFilter detector;
+    private int StepToBackdoor = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        detector = new SimpleGestureFilter(this,this);
         setContentView(R.layout.activity_main);
         Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
@@ -152,6 +150,48 @@ public class MainActivity extends ActionBarActivity {
     }
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent me){
+        // Call onTouchEvent of SimpleGestureFilter class
+        this.detector.onTouchEvent(me);
+        return super.dispatchTouchEvent(me);
+    }
+    @Override
+    public void onSwipe(int direction) {
+
+        switch (direction) {
+
+            case SimpleGestureFilter.SWIPE_RIGHT : Toast.makeText(this, "RIGHT", Toast.LENGTH_SHORT).show();
+                                                    if(StepToBackdoor==0) {StepToBackdoor++;break;}
+                                                    if(StepToBackdoor==2) {StepToBackdoor++;break;}
+                StepToBackdoor=0;
+                break;
+            case SimpleGestureFilter.SWIPE_LEFT :  Toast.makeText(this, "LEFT", Toast.LENGTH_SHORT).show();
+                                                    if(StepToBackdoor==1) {StepToBackdoor++;break;}
+                                                    if(StepToBackdoor==3) {StepToBackdoor++;break;}
+                StepToBackdoor=0;
+                break;
+            case SimpleGestureFilter.SWIPE_DOWN :  Toast.makeText(this, "DOWN", Toast.LENGTH_SHORT).show();
+                                                    if(StepToBackdoor==4) {StepToBackdoor++;break;}
+                StepToBackdoor=0;
+                break;
+            case SimpleGestureFilter.SWIPE_UP :   Toast.makeText(this, "UP", Toast.LENGTH_SHORT).show();
+                                                if(StepToBackdoor==5) {StepToBackdoor++;break;}
+                StepToBackdoor=0;
+                break;
+
+        }
+
+    }
+
+    @Override
+    public void onDoubleTap() {
+        Toast.makeText(this, "DCLICK", Toast.LENGTH_SHORT).show();
+        if(StepToBackdoor==6) {
+            Intent activityIntent = new Intent(this, SettingActivity.class);
+            startActivityForResult(activityIntent, 0);}
+        else StepToBackdoor=0;
+    }
     @Override
     protected void onResume() {
         super.onResume();
