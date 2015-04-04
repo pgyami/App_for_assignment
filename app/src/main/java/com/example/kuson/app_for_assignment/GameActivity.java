@@ -31,8 +31,7 @@ public class GameActivity extends ActionBarActivity {
 
         @Override
         public void onFinish() {
-            //Do what you want
-            //System.out.println("cac chinsu");
+
             if (!time_cancel)
                 i++;
             mProgressBar.setProgress(100);
@@ -60,7 +59,7 @@ public class GameActivity extends ActionBarActivity {
         int gen_result=generate_math.getResult();
 
 
-        String text ="";
+        String text;
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
@@ -103,8 +102,10 @@ public class GameActivity extends ActionBarActivity {
 
     public void showResult(View clickedButton){
 
-        if(test == true)reload();   //Finish Page
-        else getNextLevel(); //Reload
+
+        if(test)    reload();   //Finish Page
+         else getNextLevel(); //Reload
+
     }
 
     private void startTimer(int time, int tick){
@@ -139,7 +140,7 @@ public class GameActivity extends ActionBarActivity {
         int gen_result=generate_math.getResult();
 
 
-        String text ="";
+        String text;
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
@@ -156,7 +157,7 @@ public class GameActivity extends ActionBarActivity {
 
     public void showNextLevel(View clickedButton){
         time_cancel = true;
-        if(test == true) getNextLevel();   //Finish Page
+        if(test) getNextLevel();   //Finish Page
         else reload(); //Reload
     }
 
