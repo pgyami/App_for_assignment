@@ -1,4 +1,4 @@
-﻿package com.example.kuson.app_for_assignment;
+package com.example.kuson.app_for_assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Random;
-
 
 public class GameActivity extends ActionBarActivity {
 
@@ -35,7 +34,7 @@ public class GameActivity extends ActionBarActivity {
             //Do what you want
             //System.out.println("cac chinsu");
             if (!time_cancel)
-            i++;
+                i++;
             mProgressBar.setProgress(100);
             reload();
 
@@ -65,9 +64,9 @@ public class GameActivity extends ActionBarActivity {
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
-            text = "Đúng";}
+            text = "dung";}
         else{ test = false;
-            text = "Sai";}
+            text = "sai";}
 
         if(generate_math.getNumber2()<0)
             question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
@@ -105,7 +104,7 @@ public class GameActivity extends ActionBarActivity {
     public void showResult(View clickedButton){
 
         if(test == true)reload();   //Finish Page
-         else getNextLevel(); //Reload
+        else getNextLevel(); //Reload
     }
 
     private void startTimer(int time, int tick){
@@ -124,7 +123,7 @@ public class GameActivity extends ActionBarActivity {
     private void getNextLevel(){                //Reload
         i = 0;
 
-       // mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        // mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
         mCountDownTimer.cancel();
         mProgressBar.setProgress(i);
         Global_Variable.LEVEL++;
@@ -144,9 +143,9 @@ public class GameActivity extends ActionBarActivity {
 
         if(gen_number1 + gen_number2 == gen_result)
         {test = true;
-            text = "Đúng";}
+            text = "dung";}
         else{ test = false;
-            text = "Sai";}
+            text = "sai";}
 
         if(generate_math.getNumber2()<0)
             question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
