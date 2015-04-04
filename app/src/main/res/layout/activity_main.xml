@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#008080">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,7 +18,11 @@
                 android:layout_height="246dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/title"
-                android:id="@+id/title_text" />
+                android:id="@+id/title_text"
+                android:gravity="center"
+                android:textSize="60sp"
+                android:textStyle="italic|bold"
+                android:textColor="#8B1A1A" />
 
         </FrameLayout>
 
@@ -25,9 +30,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Hi score is writen here"
+            android:text="Điểm cao nhất là: 15"
             android:id="@+id/hiScore_text"
-            android:layout_weight="0.21" />
+            android:layout_weight="0.21"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#DDC488"
+            android:textSize="30sp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -35,7 +44,11 @@
             android:text="@string/start_button"
             android:id="@+id/start_button"
             android:onClick="showGame"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.25"
+            android:layout_margin="4dp"
+            style="@style/btnStyleMenu"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <Button
             android:layout_width="match_parent"
@@ -43,7 +56,11 @@
             android:text="@string/setting_button"
             android:id="@+id/setting_button"
             android:onClick="showSetting"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.25"
+            android:layout_margin="4dp"
+            style="@style/btnStyleMenu"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <Button
             android:layout_width="match_parent"
@@ -51,7 +68,11 @@
             android:text="@string/exit_button"
             android:id="@+id/exit_button"
             android:onClick="Exit"
-            android:layout_weight="0.25" />
+            android:layout_weight="0.25"
+            android:layout_margin="4dp"
+            style="@style/btnStyleMenu"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

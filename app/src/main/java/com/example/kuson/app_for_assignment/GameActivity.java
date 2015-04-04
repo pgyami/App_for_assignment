@@ -48,6 +48,7 @@ public class GameActivity extends ActionBarActivity {
         setContentView(R.layout.activity_game);
         Global_Variable.LEVEL = 0;
 
+
         mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
         mProgressBar.setProgress(i);
 
@@ -129,7 +130,7 @@ public class GameActivity extends ActionBarActivity {
         mProgressBar.setProgress(i);
         Global_Variable.LEVEL++;
         TextView level_text = (TextView)findViewById(R.id.level_text);
-        level_text.setText(String.valueOf(Global_Variable.LEVEL));
+        level_text.setText("Cấp độ: " + String.valueOf(Global_Variable.LEVEL));
 
         startTimer(3000, 20);
         Generate generate_math = GenerateMath(Global_Variable.DIFFICULTY);

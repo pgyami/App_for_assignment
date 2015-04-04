@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#008080">
 
     <LinearLayout
         android:orientation="vertical"
@@ -64,7 +65,10 @@
                 android:text="@string/replay_button"
                 android:onClick="showGame"
                 android:id="@+id/replay_button"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/btnStyleRestart"
+                android:layout_margin="4dp"
+                android:textSize="18sp"/>
 
             <Button
                 android:layout_width="0dp"
@@ -72,7 +76,10 @@
                 android:text="@string/back_button"
                 android:onClick="showMain"
                 android:id="@+id/back_button"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/btnStyleMenu"
+                android:layout_margin="4dp"
+                android:textSize="18sp"/>
 
         </LinearLayout>
 
@@ -80,7 +87,10 @@
             android:layout_width="match_parent"
             android:layout_height="105dp"
             android:text="@string/share_button"
-            android:id="@+id/share_button" />
+            android:id="@+id/share_button"
+            style="@style/btnStyleFacebookShare"
+            android:layout_margin="4dp"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 

@@ -6,24 +6,34 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="#4A708B">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="show level"
+            android:text="10"
             android:id="@+id/level_text"
-            android:layout_weight="0.09" />
+            android:layout_weight="0.09"
+            android:background="#8B7500"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#FFEC8B" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Question is writen here"
+            android:text="1 + 1 = 2"
+            android:textStyle="italic|bold"
             android:id="@+id/question_text"
             android:layout_weight="0.62"
-            android:textSize="65sp"
-            android:gravity="center"/>
+            android:textSize="60sp"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#FFFF00"
+            android:background="#8B7500" />
 
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -54,7 +64,11 @@
                 android:text="@string/true_answer"
                 android:id="@+id/yes_button"
                 android:onClick="showNextLevel"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/btnStyleTrue"
+                android:layout_margin="4dp"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
             <Button
                 android:layout_width="0dp"
@@ -62,7 +76,11 @@
                 android:text="@string/false_answer"
                 android:id="@+id/no_button"
                 android:onClick="showResult"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                style="@style/btnStyleFalse"
+                android:layout_margin="4dp"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

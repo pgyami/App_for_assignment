@@ -1,9 +1,8 @@
 package com.example.kuson.app_for_assignment;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.telephony.gsm.GsmCellLocation;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +11,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
+import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,7 +25,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
 
 public class MainActivity extends ActionBarActivity implements SimpleGestureListener{
 
@@ -128,7 +127,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         setContentView(R.layout.activity_main);
         Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
-        highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
+        highscore.setText("Điểm cao nhất là: "+ Global_Variable.HIGH_SCORE);
         String conf = readdec();
         System.out.println("Configuration content:" +conf);
         String delims = "[,]";
@@ -148,6 +147,8 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
             Global_Variable.DIFFICULTY = Integer.parseInt(Parser[5]);
 
     }
+
+
     }
 
     @Override
