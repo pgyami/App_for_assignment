@@ -19,12 +19,12 @@ public class GameActivity extends ActionBarActivity {
     int clock_tick = (int)(round_time/Global_Variable.MAX_PROGRESSBAR);
     boolean time_cancel = true;
     boolean test = true;
-    CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick) {
+    CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick ) {
 
         @Override
         public void onTick(long millisUntilFinished) {
             i++;
-            //System.out.println(i + " - " +millisUntilFinished);
+            System.out.println(i + " - " +millisUntilFinished + " - " + clock_tick);
             mProgressBar.setProgress(i);
 
         }
@@ -34,7 +34,7 @@ public class GameActivity extends ActionBarActivity {
 
             if (!time_cancel)
                 i++;
-            mProgressBar.setProgress(100);
+           // mProgressBar.setProgress(100);
             reload();
 
         }

@@ -30,13 +30,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Điểm cao nhất là: 15"
             android:id="@+id/hiScore_text"
             android:layout_weight="0.21"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#DDC488"
-            android:textSize="30sp"/>
+            android:textSize="30sp" />
 
         <Button
             android:layout_width="match_parent"

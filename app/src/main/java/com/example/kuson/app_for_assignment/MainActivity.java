@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
                 String str = readfromFiledec(Global_Variable.CONFIG_FILE_NAME);
                 System.out.println("Decrypted configuration"+ str);
                 byte[] ciphertext = Base64.decode(str, 1);
-                System.out.println("Decrypted configuration "+ ciphertext);
+                System.out.println("Decrypted configuration " + ciphertext);
                 plaintext = decrype(ciphertext,"/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
 
                 System.out.println(plaintext);
@@ -127,7 +127,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         setContentView(R.layout.activity_main);
         Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
-        highscore.setText("Điểm cao nhất là: "+ Global_Variable.HIGH_SCORE);
+        highscore.setText(getString(R.string.hiscore_label) + Global_Variable.HIGH_SCORE);
         String conf = readdec();
         System.out.println("Configuration content:" +conf);
         String delims = "[,]";
@@ -197,7 +197,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     protected void onResume() {
         super.onResume();
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
-        highscore.setText("Điểm cao nhất là "+ Global_Variable.HIGH_SCORE);
+        highscore.setText(getString(R.string.hiscore_label)+ Global_Variable.HIGH_SCORE);
 
     }
 

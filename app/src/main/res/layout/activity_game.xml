@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/extra_time_progressBar"
-            android:max="50"
+            android:max="100"
             android:progress="0"/>
 
         <LinearLayout
