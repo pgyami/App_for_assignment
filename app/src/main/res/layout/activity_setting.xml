@@ -6,172 +6,125 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:weightSum="100">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/setting_title_text"
             android:id="@+id/setting_title_text"
             android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text="@string/time_setting_label"
+            android:id="@+id/time_setting_lable"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_seekBar"
+            android:max="50"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text= "@string/adding_time_label"
+            android:id="@+id/extratime_setting_label"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/extra_time_seekBar"
+            android:layout_gravity="center_horizontal"
+            android:max="50"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:id="@+id/decrease_time_label"
+            android:text="@string/decrease_time_label"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/decrease_time_seekBar"
+            android:max="50"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="@string/game_rank_label"
+            android:id="@+id/rank_game_lable"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="40sp"
-            android:layout_weight="15"
-            android:layout_gravity="center_horizontal" />
-
-        <LinearLayout
-            android:orientation="vertical"
+             />
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="15">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
+            <RadioButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/time_setting_label"
-                android:id="@+id/time_setting_lable"
+                android:text="@string/easy"
+                android:onClick="onRadioButtonClicked"
+                android:id="@+id/easy_radioButton"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                 />
 
-            <SeekBar
-                android:layout_width="match_parent"
+            <RadioButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/time_seekBar"
-                android:max="50"
+                android:text="@string/normal"
+                android:onClick="onRadioButtonClicked"
+                android:id="@+id/normal_radioButton"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textStyle="bold"/>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hard"
+                android:onClick="onRadioButtonClicked"
+                android:id="@+id/hard_radioButton"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+        </RadioGroup>
+
+        <CheckBox
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="15">
+            android:id="@+id/reset_hiscore_checkBox"
+            android:text="@string/reset_hiscore_label"
+            android:onClick="resetHiscore"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text= "@string/adding_time_label"
-                android:textSize="30sp"
-                android:id="@+id/extratime_setting_label"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/extra_time_seekBar"
-                android:layout_gravity="center_horizontal"
-                android:max="50"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="15">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/decrease_time_label"
-                android:text="@string/decrease_time_label"
-                android:textSize="30sp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/decrease_time_seekBar"
-                android:max="50" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="25">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/game_rank_label"
-                android:textSize="30sp"
-                android:id="@+id/rank_game_lable"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/easy"
-                    android:textSize="30sp"
-                    android:onClick="onRadioButtonClicked"
-                    android:id="@+id/easy_radioButton"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                     />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/normal"
-                    android:textSize="30sp"
-                    android:onClick="onRadioButtonClicked"
-                    android:id="@+id/normal_radioButton"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hard"
-                    android:textSize="30sp"
-                    android:onClick="onRadioButtonClicked"
-                    android:id="@+id/hard_radioButton"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"/>
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="15">
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/reset_hiscore_checkBox"
-                android:text="@string/reset_hiscore_label"
-                android:textSize="30sp"
-                android:onClick="resetHiscore"
-                android:singleLine="true"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/save_button"
-                android:id="@+id/save_button"
-                android:onClick="showMain"
-                style="@style/btnStyleMenu"
-                android:layout_margin="4dp"
-                android:textSize="30sp" />
-        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="83dp"
+            android:text="@string/save_button"
+            android:id="@+id/save_button"
+            android:onClick="showMain"
+            style="@style/btnStyleMenu"
+            android:layout_margin="4dp"
+             />
 
     </LinearLayout>
 
