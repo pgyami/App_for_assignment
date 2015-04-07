@@ -19,12 +19,12 @@ public class GameActivity extends ActionBarActivity {
     int clock_tick = (int)(round_time/Global_Variable.MAX_PROGRESSBAR);
     boolean time_cancel = true;
     boolean test = true;
-    CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick ) {
+    CountDownTimer mCountDownTimer = new CountDownTimer(round_time, clock_tick -10) {
 
         @Override
         public void onTick(long millisUntilFinished) {
             i++;
-            System.out.println(i + " - " +millisUntilFinished + " - " + clock_tick);
+            //System.out.println(i + " - " +millisUntilFinished + " - " + clock_tick);
             mProgressBar.setProgress(i);
 
         }
@@ -69,9 +69,11 @@ public class GameActivity extends ActionBarActivity {
             text = "sai";}
 
         if(generate_math.getNumber2()<0)
-            question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
+            //question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
+            question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result);
         else
-            question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result  + "----->" + text);
+            //question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result  + "----->" + text);
+            question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result);
 
         getNextLevel();
 
@@ -110,14 +112,26 @@ public class GameActivity extends ActionBarActivity {
     }
 
     private void startTimer(int time, int tick){
-
-        mCountDownTimer.start();
         time_cancel = false;
+        i = 0;
+        /*System.out.println(time + " - " + tick);
+        while (!time_cancel && i != 100)
+        {
+            mProgressBar.setProgress(i);
+            try {
+                Thread.sleep(1000);
+            } catch(InterruptedException ex) {
+                System.out.println(ex);
+            }
+            i++;
+        }*/
+        mCountDownTimer.start();
+
     }
     private void reload(){                      //Finish Page
 
         mCountDownTimer.cancel();
-
+        time_cancel = true;
         Intent activityIntent = new Intent(this, ResultActivity.class);
         startActivity(activityIntent);
     }
@@ -125,14 +139,14 @@ public class GameActivity extends ActionBarActivity {
     private void getNextLevel(){                //Reload
         i = 0;
 
-        // mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
+        mProgressBar=(ProgressBar)findViewById(R.id.round_time_progressBar);
         mCountDownTimer.cancel();
         mProgressBar.setProgress(i);
         Global_Variable.LEVEL++;
         TextView level_text = (TextView)findViewById(R.id.level_text);
         level_text.setText("Cấp độ: " + String.valueOf(Global_Variable.LEVEL));
 
-        startTimer(3000, 20);
+        startTimer(round_time, clock_tick);
         Generate generate_math = GenerateMath(Global_Variable.DIFFICULTY);
         TextView question_text = (TextView) findViewById(R.id.question_text);
 
@@ -150,16 +164,18 @@ public class GameActivity extends ActionBarActivity {
             text = "sai";}
 
         if(generate_math.getNumber2()<0)
-            question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
+            question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result);
+           // question_text.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result + "----->" + text);
         else
-            question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result  + "----->" + text);
+            question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result);
+            //question_text.setText(gen_number1 + " + " + gen_number2 + " = " + gen_result  + "----->" + text);
 
     }
 
     public void showNextLevel(View clickedButton){
         time_cancel = true;
-        if(test) getNextLevel();   //Finish Page
-        else reload(); //Reload
+        if(test) getNextLevel();   //go to next level
+        else reload(); //End game
     }
 
 

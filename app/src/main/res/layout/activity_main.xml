@@ -7,11 +7,12 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="1">
+        android:weightSum="100">
 
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50">
 
             <TextView
                 android:layout_width="385dp"
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/hiScore_text"
-            android:layout_weight="0.21"
+            android:layout_weight="5"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#DDC488"
@@ -43,7 +44,7 @@
             android:text="@string/start_button"
             android:id="@+id/start_button"
             android:onClick="showGame"
-            android:layout_weight="0.25"
+            android:layout_weight="15"
             android:layout_margin="4dp"
             style="@style/btnStyleMenu"
             android:textSize="18sp"
@@ -55,7 +56,7 @@
             android:text="@string/setting_button"
             android:id="@+id/setting_button"
             android:onClick="showSetting"
-            android:layout_weight="0.25"
+            android:layout_weight="15"
             android:layout_margin="4dp"
             style="@style/btnStyleMenu"
             android:textSize="18sp"
@@ -67,7 +68,7 @@
             android:text="@string/exit_button"
             android:id="@+id/exit_button"
             android:onClick="Exit"
-            android:layout_weight="0.25"
+            android:layout_weight="15"
             android:layout_margin="4dp"
             style="@style/btnStyleMenu"
             android:textSize="18sp"

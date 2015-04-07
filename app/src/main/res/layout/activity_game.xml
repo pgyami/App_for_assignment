@@ -6,7 +6,7 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="1"
+        android:weightSum="100"
         android:background="#4A708B">
 
         <TextView
@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:text="10"
             android:id="@+id/level_text"
-            android:layout_weight="0.09"
+            android:layout_weight="10"
             android:background="#8B7500"
             android:gravity="center"
             android:textSize="25sp"
@@ -28,7 +28,7 @@
             android:text="1 + 1 = 2"
             android:textStyle="italic|bold"
             android:id="@+id/question_text"
-            android:layout_weight="0.62"
+            android:layout_weight="55"
             android:textSize="60sp"
             android:gravity="center"
             android:singleLine="true"
@@ -42,7 +42,7 @@
             android:id="@+id/round_time_progressBar"
             android:max="100"
             android:progress="0"
-             />
+            android:layout_weight="2" />
 
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -50,17 +50,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/extra_time_progressBar"
             android:max="100"
-            android:progress="0"/>
+            android:progress="0"
+            android:layout_weight="2" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2">
+            android:weightSum="2"
+            android:layout_weight="20">
 
             <Button
                 android:layout_width="0dp"
-                android:layout_height="124dp"
+                android:layout_height="match_parent"
                 android:text="@string/true_answer"
                 android:id="@+id/yes_button"
                 android:onClick="showNextLevel"
