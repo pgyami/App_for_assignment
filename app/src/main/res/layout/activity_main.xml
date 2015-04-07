@@ -7,23 +7,20 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:background="#008080">
 
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50">
 
-            <TextView
-                android:layout_width="385dp"
-                android:layout_height="246dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/title"
-                android:id="@+id/title_text"
-                android:gravity="center"
-                android:textSize="60sp"
-                android:textStyle="italic|bold"
-                android:textColor="#8B1A1A" />
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="450px"
+                android:layout_height="450px"
+                android:src="@drawable/image_main"
+                android:layout_gravity="center"/>
 
         </FrameLayout>
 

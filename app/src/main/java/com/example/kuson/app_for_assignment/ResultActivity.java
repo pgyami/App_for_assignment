@@ -43,6 +43,22 @@ public class ResultActivity extends ActionBarActivity {
             writeToFile(""+Global_Variable.HIGH_SCORE);}
 
         hiscore_text.setText(String.valueOf(Global_Variable.HIGH_SCORE));
+
+
+        // listeners of our two buttons
+        View.OnClickListener handler = new View.OnClickListener() {
+            public void onClick(View v) {
+                switch (v.getId()) {
+
+                    case R.id.share_button:
+                        shareGame();
+                        break;
+                }
+            }
+        };
+
+// our buttons
+        findViewById(R.id.share_button).setOnClickListener(handler);
     }
 
 
@@ -77,5 +93,20 @@ public class ResultActivity extends ActionBarActivity {
         //Intent activityIntent = new Intent(this, MainActivity.class);
         //startActivity(activityIntent);
         finish();
+    }
+
+    private void shareGame() {
+
+        Intent share = new Intent(android.content.Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+
+        // Add data to the intent, the receiving app will decide
+        // what to do with it.
+        share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+        share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.delvedapps.onetwothree");
+
+        startActivity(Intent.createChooser(share, getString(R.string.share)));
+
     }
 }

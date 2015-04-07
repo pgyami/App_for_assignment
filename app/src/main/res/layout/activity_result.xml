@@ -7,7 +7,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:background="@drawable/background">
 
         <LinearLayout
             android:orientation="horizontal"
