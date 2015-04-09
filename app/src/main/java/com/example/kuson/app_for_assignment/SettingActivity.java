@@ -48,8 +48,8 @@ public class SettingActivity extends ActionBarActivity {
         public void write (String msg){
             byte[] ciphertext= encrypt(msg,"/EtojLtSXj6Zyz4rVbBngM3vlJSIp9MA");
             String enc = Base64.encodeToString(ciphertext, 1);
-            byte[] dec = Base64.decode(enc,0);
-            System.out.println(enc);
+            //byte[] dec = Base64.decode(enc,0);
+            //System.out.println(enc);
             writeToFile(enc,Global_Variable.CONFIG_FILE_NAME);
         }
         public byte[] encrypt(String data, String key){
