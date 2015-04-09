@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
+import com.facebook.FacebookSdk;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,7 +26,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
 public class MainActivity extends ActionBarActivity implements SimpleGestureListener{
 
 
@@ -148,6 +148,8 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
     }
 
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
     }
 
