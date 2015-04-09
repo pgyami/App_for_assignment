@@ -150,6 +150,10 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+        //for background audio
+        Intent objIntent = new Intent(this, BackgroundMusic.class);
+        startService(objIntent);
+        //0--
 
     }
 
@@ -239,6 +243,9 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     public void Exit(View clickeadButton)
     {
         finish();
+        //to stop music
+        Intent objIntent = new Intent(this, BackgroundMusic.class);
+        stopService(objIntent);
         System.exit(0);
 
     }
