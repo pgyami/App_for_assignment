@@ -32,8 +32,8 @@
             android:layout_weight="8"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="#DDC488"
-            android:textSize="30sp" />
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -43,8 +43,8 @@
             android:layout_weight="30">
 
             <Button
-                android:layout_width="320dp"
-                android:layout_height="fill_parent"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 android:id="@+id/start_button"
                 android:onClick="showGame"
                 android:background="@drawable/play"
@@ -52,8 +52,8 @@
                 android:layout_gravity="center|left" />
 
             <Button
-                android:layout_width="320dp"
-                android:layout_height="fill_parent"
+                android:layout_width="340dp"
+                android:layout_height="340dp"
                 android:id="@+id/exit_button"
                 android:onClick="Exit"
                 android:layout_gravity="center|right"

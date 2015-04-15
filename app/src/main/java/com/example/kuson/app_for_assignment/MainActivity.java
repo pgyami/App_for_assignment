@@ -1,8 +1,6 @@
 package com.example.kuson.app_for_assignment;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ScaleDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
@@ -10,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -130,7 +127,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         setContentView(R.layout.activity_main);
         Global_Variable.HIGH_SCORE = Integer.parseInt(readfromFile(Global_Variable.HIGH_SCORE_FILE_NAME));
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
-        highscore.setText(getString(R.string.hiscore_label) + Global_Variable.HIGH_SCORE);
+        highscore.setText(getString(R.string.hiscore_label)+ Global_Variable.HIGH_SCORE);
         String conf = readdec();
         System.out.println("Configuration content:" +conf);
         String delims = "[,]";
