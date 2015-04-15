@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:weightSum="100"
-        android:background="@drawable/background">
+        android:background="#008080">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -68,41 +68,37 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:weightSum="2"
-            android:layout_weight="15">
+            android:layout_weight="15"
+            android:gravity="center">
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:text="@string/replay_button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:onClick="showGame"
                 android:id="@+id/replay_button"
-                android:layout_weight="1"
-                style="@style/btnStyleRestart"
                 android:layout_margin="4dp"
-                android:textSize="18sp"/>
+                android:layout_gravity="center"
+                android:background="@drawable/replay"/>
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:text="@string/back_button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:onClick="showMain"
                 android:id="@+id/back_button"
-                android:layout_weight="1"
-                style="@style/btnStyleMenu"
                 android:layout_margin="4dp"
-                android:textSize="18sp"/>
+                android:layout_gravity="center"
+                android:background="@drawable/home"/>
 
         </LinearLayout>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/share_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/share_button"
-            style="@style/btnStyleFacebookShare"
             android:layout_margin="4dp"
-            android:textSize="18sp"
-            android:layout_weight="15" />
+            android:layout_gravity="center"
+            android:background="@drawable/facebook"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 
