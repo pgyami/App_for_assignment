@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
+import com.facebook.FacebookSdk;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,7 +26,6 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
 public class MainActivity extends ActionBarActivity implements SimpleGestureListener{
 
 
@@ -149,6 +149,12 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     }
 
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        //for background audio
+        Intent objIntent = new Intent(this, BackgroundMusic.class);
+        startService(objIntent);
+        //0--
+
     }
 
     @Override
@@ -227,6 +233,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     public void showGame(View clickedButton){
         Intent activityIntent = new Intent(this, GameActivity.class);
         startActivity(activityIntent);
+        new Sound().click_sound(this);//sound when click button
     }
 
     public void showSetting(View clickedButton){
@@ -237,6 +244,10 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     public void Exit(View clickeadButton)
     {
         finish();
+        new Sound().click_sound(this);//sound when click button
+        //to stop music
+        Intent objIntent = new Intent(this, BackgroundMusic.class);
+        stopService(objIntent);
         System.exit(0);
 
     }

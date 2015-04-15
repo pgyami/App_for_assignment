@@ -2,12 +2,18 @@ package com.example.kuson.app_for_assignment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -15,8 +21,11 @@ import java.io.OutputStreamWriter;
 
 public class ResultActivity extends ActionBarActivity {
 
+        //FBShare
 
-        private void writeToFile(String data) {
+    CallbackManager callbackManager;
+    ShareDialog shareDialog;
+    private void writeToFile(String data) {
             try {
                 OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(Global_Variable.HIGH_SCORE_FILE_NAME, Context.MODE_PRIVATE));
                 outputStreamWriter.write(data);
@@ -27,7 +36,11 @@ public class ResultActivity extends ActionBarActivity {
                 System.out.println("Exception: File write failed: " + e.toString());
             }
         }
-
+    @Override
+    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +72,17 @@ public class ResultActivity extends ActionBarActivity {
 
 // our buttons
         findViewById(R.id.share_button).setOnClickListener(handler);
+
+        //Facebook Share
+        //Just for test
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
+        // this part is optional
+       // shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() { ... });
+
+        //cccccccccccccccccccccccccccccc
+
     }
 
 
@@ -85,28 +109,34 @@ public class ResultActivity extends ActionBarActivity {
     }
 
     public void showGame(View clickedButton){
+        new Sound().click_sound(this);//sound when click button
         Intent activityIntent = new Intent(this, GameActivity.class);
         startActivity(activityIntent);
     }
 
     public void showMain(View clickedButton){
-        //Intent activityIntent = new Intent(this, MainActivity.class);
-        //startActivity(activityIntent);
+        new Sound().click_sound(this);//sound when click button
         finish();
     }
 
-    private void shareGame() {
 
-        Intent share = new Intent(android.content.Intent.ACTION_SEND);
-        share.setType("text/plain");
-        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+    private void shareGame(){
+        new Sound().click_sound(this);//sound when click button
 
-        // Add data to the intent, the receiving app will decide
-        // what to do with it.
-        share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
-        share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.delvedapps.onetwothree");
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentTitle("Cùng nhau hack não và hư cấu nào !!")
+                    .setContentDescription(
+                            "Bạn đã vượt qua được level "+ Global_Variable.LEVEL + ". Đỉnh cao của sự hư cấu rồi!")
+                    .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.smallcom.onetwothree"))
+                    .build();
 
-        startActivity(Intent.createChooser(share, getString(R.string.share)));
-
+            try {
+                shareDialog.show(linkContent);
+            }
+            catch (Exception e )
+            {System.out.println(e.getMessage());}
+  //
+   }
     }
 }

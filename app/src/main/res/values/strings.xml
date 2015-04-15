@@ -15,7 +15,7 @@
     <string name="time_help_button">CỘNG THÊM GIỜ</string>
     <string name="replay_button">CHƠI LẠI</string>
     <string name="back_button">MÀN HÌNH CHÍNH</string>
-    <string name="share_button">CHIA SẺ GAME</string>
+    <string name="share_button">CHIA SẺ GAME QUA FACEBOOK</string>
     <string name="setting_title_text">TÙY CHỌN</string>
     <string name="time_setting_label">Thời gian cho mỗi vòng :</string>
     <string name="adding_time_label">Thời gian cộng thêm :</string>
@@ -31,5 +31,6 @@
     <string name="title_activity_setting">SettingActivity</string>
     <string name="level">Cấp độ: </string>
     <string name="share">Chia sẻ game thông qua: </string>
+    <string name="facebook_app_id">1553104188292259</string>
 
 </resources>
