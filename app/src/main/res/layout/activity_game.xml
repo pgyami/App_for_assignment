@@ -12,7 +12,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10"
             android:id="@+id/level_text"
             android:layout_weight="10"
             android:background="#000000"
@@ -25,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="1 + 1 = 2"
             android:textStyle="italic|bold"
             android:id="@+id/question_text"
             android:layout_weight="55"
@@ -64,7 +62,9 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:id="@+id/yes_button"
-                android:onClick="showNextLevel"
+
+                android:onClick="trueClicked"
+
                 android:layout_margin="4dp"
                 android:background="@drawable/yes"
                 android:layout_gravity="center"/>
@@ -73,7 +73,8 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:id="@+id/no_button"
-                android:onClick="showResult"
+
+                android:onClick="falseClicked"
                 android:layout_margin="4dp"
                 android:layout_gravity="center"
                 android:background="@drawable/no"/>
