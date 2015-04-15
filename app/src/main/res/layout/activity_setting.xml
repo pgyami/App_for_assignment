@@ -168,7 +168,6 @@
                 android:text="@string/save_button"
                 android:id="@+id/save_button"
                 android:onClick="showMain"
-                style="@style/btnStyleMenu"
                 android:layout_margin="4dp"
                 android:textSize="30sp" />
         </LinearLayout>

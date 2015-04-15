@@ -17,8 +17,8 @@
 
             <ImageView
                 android:id="@+id/imageView1"
-                android:layout_width="450px"
-                android:layout_height="450px"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
                 android:src="@drawable/image_main"
                 android:layout_gravity="center"/>
 
@@ -36,40 +36,31 @@
             android:textSize="30sp" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/start_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/start_button"
             android:onClick="showGame"
             android:layout_weight="15"
+            android:background="@drawable/play"
             android:layout_margin="4dp"
-            style="@style/btnStyleMenu"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:layout_gravity="center_horizontal" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/setting_button"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+
             android:id="@+id/setting_button"
-            android:onClick="showSetting"
-            android:layout_weight="15"
-            android:layout_margin="4dp"
-            style="@style/btnStyleMenu"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:onClick="showSetting"/>
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/exit_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:id="@+id/exit_button"
             android:onClick="Exit"
             android:layout_weight="15"
-            android:layout_margin="4dp"
-            style="@style/btnStyleMenu"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:layout_gravity="center"
+            android:background="@drawable/exit"
+            android:layout_margin="4dp"/>
 
     </LinearLayout>
 

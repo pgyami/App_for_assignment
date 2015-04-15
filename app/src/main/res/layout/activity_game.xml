@@ -7,7 +7,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:weightSum="100"
-        android:background="@drawable/background">
+        android:background="#008080">
 
         <TextView
             android:layout_width="match_parent"
@@ -57,31 +57,26 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:weightSum="2"
-            android:layout_weight="20">
+            android:layout_weight="20"
+            android:gravity="center">
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="@string/true_answer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:id="@+id/yes_button"
                 android:onClick="showNextLevel"
-                android:layout_weight="1"
-                style="@style/btnStyleTrue"
                 android:layout_margin="4dp"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:background="@drawable/yes"
+                android:layout_gravity="center"/>
 
             <Button
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:text="@string/false_answer"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:id="@+id/no_button"
                 android:onClick="showResult"
-                android:layout_weight="1"
-                style="@style/btnStyleFalse"
                 android:layout_margin="4dp"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:layout_gravity="center"
+                android:background="@drawable/no"/>
 
         </LinearLayout>
 
