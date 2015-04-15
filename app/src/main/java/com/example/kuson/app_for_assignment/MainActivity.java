@@ -233,7 +233,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     public void showGame(View clickedButton){
         Intent activityIntent = new Intent(this, GameActivity.class);
         startActivity(activityIntent);
-        new Sound().click_sound(this);//sound when click button
+        new Sound().btn_play(this);//sound when click button
     }
 
     public void showSetting(View clickedButton){
@@ -244,7 +244,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     public void Exit(View clickeadButton)
     {
         finish();
-        new Sound().click_sound(this);//sound when click button
+        new Sound().Other(this);//sound when click button
         //to stop music
         Intent objIntent = new Intent(this, BackgroundMusic.class);
         stopService(objIntent);

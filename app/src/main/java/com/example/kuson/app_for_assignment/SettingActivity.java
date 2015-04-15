@@ -240,7 +240,7 @@ public class SettingActivity extends ActionBarActivity {
         //Edit here when you create new variable in GLOBAL_VARIABLE class
         write(Global_Variable.CONFIG_FILE_NAME + "," + Global_Variable.HIGH_SCORE_FILE_NAME + "," + Global_Variable.TOTAL_TIME + "," + Global_Variable.EXTRA_TIME + "," + Global_Variable.DECREASE_TIME + "," + Global_Variable.DIFFICULTY);
        // startActivity(activityIntent);
-        new Sound().click_sound(this);//sound when click button
+        new Sound().Other(this);//sound when click button
         finish();
     }
 }
