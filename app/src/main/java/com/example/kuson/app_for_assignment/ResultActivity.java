@@ -53,8 +53,12 @@ public class ResultActivity extends ActionBarActivity {
         if(Global_Variable.LEVEL>Global_Variable.HIGH_SCORE)
 
         {Global_Variable.HIGH_SCORE=Global_Variable.LEVEL;
-            writeToFile(""+Global_Variable.HIGH_SCORE);}
-
+            writeToFile(""+Global_Variable.HIGH_SCORE);
+            new Sound().Congrat(this);
+        }
+        else {
+            new Sound().Failure(this);
+        }
         hiscore_text.setText(String.valueOf(Global_Variable.HIGH_SCORE));
 
 
@@ -109,19 +113,19 @@ public class ResultActivity extends ActionBarActivity {
     }
 
     public void showGame(View clickedButton){
-        new Sound().click_sound(this);//sound when click button
+        new Sound().Other(this);//sound when click button
         Intent activityIntent = new Intent(this, GameActivity.class);
         startActivity(activityIntent);
     }
 
     public void showMain(View clickedButton){
-        new Sound().click_sound(this);//sound when click button
+        new Sound().Other(this);//sound when click button
         finish();
     }
 
 
     private void shareGame(){
-        new Sound().click_sound(this);//sound when click button
+        new Sound().Other(this);//sound when click button
 
         if (ShareDialog.canShow(ShareLinkContent.class)) {
             ShareLinkContent linkContent = new ShareLinkContent.Builder()

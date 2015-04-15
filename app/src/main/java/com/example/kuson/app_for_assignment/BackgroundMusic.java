@@ -18,8 +18,9 @@ public class BackgroundMusic extends Service {
     }
 
     public void onCreate() {
-        mp = MediaPlayer.create(this,R.raw.bg_music);
-        mp.setLooping(false);
+        mp = MediaPlayer.create(this,R.raw.background);
+        mp.setLooping(true);
+        mp.setVolume(0.25f,0.25f);
     }
 
     public void onDestroy() {

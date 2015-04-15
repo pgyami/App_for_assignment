@@ -60,13 +60,22 @@ public class GameActivity extends ActionBarActivity {
 
     public void trueClicked(View clickedButton){
         Global_Variable.GAME_RUNNING_STATUS = false;
-        if(progressPlayer.checkUserChosen(true)) progressPlayer.getNextLevel();   //go to next level
-        else showResult(); //End game
+        if(progressPlayer.checkUserChosen(true))
+        {
+            progressPlayer.getNextLevel();
+            new Sound().btn_true(this);
+        }   //go to next level
+        else {showResult();
+        } //End game
     }
 
     public void falseClicked(View clickedButton){
         Global_Variable.GAME_RUNNING_STATUS = false;
-        if(progressPlayer.checkUserChosen(false)) progressPlayer.getNextLevel();   //Finish Page
-        else showResult(); //Reload
+        if(progressPlayer.checkUserChosen(false))
+        {   new Sound().btn_false(this);
+            progressPlayer.getNextLevel(); }  //Finish Page
+        else
+        {
+            showResult();} //Reload
     }
 }
