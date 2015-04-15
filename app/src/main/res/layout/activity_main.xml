@@ -12,15 +12,15 @@
 
         <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50">
+            android:layout_height="0dp"
+            android:layout_weight="60">
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_gravity="center"
-                android:background="@drawable/image_main" />
+                android:background="@drawable/image_main"
+                android:layout_gravity="center" />
 
         </FrameLayout>
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/hiScore_text"
-            android:layout_weight="5"
+            android:layout_weight="8"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#DDC488"
@@ -38,25 +38,25 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="30">
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="320dp"
+                android:layout_height="fill_parent"
                 android:id="@+id/start_button"
                 android:onClick="showGame"
-                android:layout_weight="15"
                 android:background="@drawable/play"
                 android:layout_margin="4dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center|left" />
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="320dp"
+                android:layout_height="fill_parent"
                 android:id="@+id/exit_button"
                 android:onClick="Exit"
-                android:layout_weight="15"
-                android:layout_gravity="center"
+                android:layout_gravity="center|right"
                 android:background="@drawable/exit"
                 android:layout_margin="4dp"/>
         </LinearLayout>

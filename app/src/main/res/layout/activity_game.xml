@@ -39,7 +39,7 @@
             android:id="@+id/round_time_progressBar"
             android:max="100"
             android:progress="0"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="#ff54ff68" />
 
         <ProgressBar
@@ -49,19 +49,19 @@
             android:id="@+id/extra_time_progressBar"
             android:max="100"
             android:progress="0"
-            android:layout_weight="2" />
+            android:layout_weight="1" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:weightSum="2"
-            android:layout_weight="20"
+            android:layout_weight="30"
             android:gravity="center">
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="320dp"
+                android:layout_height="fill_parent"
                 android:id="@+id/yes_button"
 
                 android:onClick="trueClicked"
@@ -71,8 +71,8 @@
                 android:layout_gravity="center"/>
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="320dp"
+                android:layout_height="fill_parent"
                 android:id="@+id/no_button"
 
                 android:onClick="falseClicked"
