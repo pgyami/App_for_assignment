@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Random;
-
 /**
  * Created by KU SON on 09/04/2015.
  */
@@ -104,7 +102,7 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
     private void showText(){
 
         Global_Variable.LEVEL = mGamer.getLevel() - 1;
-        levelText.setText("Cấp độ: " + String.valueOf(mGamer.getLevel()));
+        levelText.setText("Score: " + String.valueOf(mGamer.getLevel()));
 
         questionText = (TextView)context.findViewById(R.id.question_text);
 

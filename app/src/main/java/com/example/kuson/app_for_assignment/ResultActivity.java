@@ -129,10 +129,10 @@ public class ResultActivity extends ActionBarActivity {
 
         if (ShareDialog.canShow(ShareLinkContent.class)) {
             ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                    .setContentTitle("Cùng nhau hack não và hư cấu nào !!")
+                    .setContentTitle("Chia sẻ cho bạn bè cùng chơi nào !!")
                     .setContentDescription(
-                            "Bạn đã vượt qua được level "+ Global_Variable.LEVEL + ". Đỉnh cao của sự hư cấu rồi!")
-                    .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.smallcom.onetwothree"))
+                            "Bạn đã đạt được "+ Global_Variable.LEVEL + " điểm. Đỉnh cao của sự hư cấu rồi!")
+                    .setContentUrl(Uri.parse("https://www.facebook.com/pages/M%E1%BB%99t-c%E1%BB%99ng-m%E1%BB%99t-b%E1%BA%B1ng-ba/829973387050647?skip_nax_wizard=true&ref_type=logout_gear"))
                     .build();
 
             try {
@@ -142,5 +142,6 @@ public class ResultActivity extends ActionBarActivity {
             {System.out.println(e.getMessage());}
   //
    }
+
     }
 }
