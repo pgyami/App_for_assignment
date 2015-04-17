@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kuson.app_for_assignment" >
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -68,6 +69,7 @@
         <provider android:authorities="com.example.kuson.app_for_assignment1553104188292259"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true"/>
+        <receiver android:name=".NotificationPublisher" />
     </application>
 
 </manifest>

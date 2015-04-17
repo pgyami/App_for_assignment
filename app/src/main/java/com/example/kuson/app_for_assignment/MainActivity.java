@@ -1,5 +1,6 @@
 package com.example.kuson.app_for_assignment;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.PendingIntent;
+import android.app.AlarmManager;
+import android.os.SystemClock;
+import android.content.Context;
 
 import com.example.kuson.app_for_assignment.SimpleGestureFilter.SimpleGestureListener;
 import com.facebook.FacebookSdk;
@@ -27,6 +32,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 public class MainActivity extends ActionBarActivity implements SimpleGestureListener{
+
 
 
         private String readfromFile(String filename) {
@@ -241,8 +247,12 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         startActivityForResult(activityIntent, 0);
     }
 
-    public void Exit(View clickeadButton)
+    public void Exit(View clickedButton)
     {
+        //FOR NOTIFICATION
+        scheduleNotification(getNotification(getString(R.string.notification_content)), Global_Variable.TIME_NOTIFICATION_CALL);
+
+
         finish();
         new Sound().Other(this);//sound when click button
         //to stop music
@@ -250,5 +260,46 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         stopService(objIntent);
         System.exit(0);
 
+
     }
+
+
+    ////////////FOR NOTIFICATION
+    private void scheduleNotification(Notification notification, int delay) {
+
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+    }
+
+    private Notification getNotification(String content) {
+        Intent myIntent = new Intent(this,MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                MainActivity.this,
+                0,
+                myIntent,
+                0);
+
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setContentTitle("1 + 1 = 3 ?");
+        builder.setContentText(content);
+        builder.setTicker("Android game: 1 + 1 = 3?");
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+        builder.setContentIntent(pendingIntent);
+        builder.setAutoCancel(true);
+        builder.setSmallIcon(R.drawable.logo);
+        return builder.build();
+
+    }
+
+
+
 }
+

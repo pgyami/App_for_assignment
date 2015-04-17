@@ -16,4 +16,5 @@ public class Global_Variable
     public static double DECREASE_TIME = 0.05;
     public static String CONFIG_FILE_NAME = "config.conf";
     public static boolean GAME_RUNNING_STATUS = true;
+    public static int TIME_NOTIFICATION_CALL = 10000;
 }
