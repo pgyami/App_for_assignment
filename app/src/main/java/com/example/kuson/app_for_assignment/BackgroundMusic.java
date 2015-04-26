@@ -9,8 +9,8 @@ import android.os.IBinder;
  * Created by 51100_000 on 09/04/2015.
  */
 public class BackgroundMusic extends Service {
-    MediaPlayer mp;
 
+    MediaPlayer mp;
     @Override
     public IBinder onBind(Intent intent) {
         // TODO Auto-generated method stub
@@ -29,10 +29,5 @@ public class BackgroundMusic extends Service {
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         mp.start();
-       /* Log.d(LOGCAT, "Media Player started!");
-        if(objPlayer.isLooping() != true){
-            Log.d(LOGCAT, "Problem in Playing Audio");
-        }*/
-    return 1;
-    }
+         return 1;}
 }

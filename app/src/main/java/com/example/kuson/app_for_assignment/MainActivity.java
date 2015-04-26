@@ -135,7 +135,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
         highscore.setText(getString(R.string.hiscore_label)+ Global_Variable.HIGH_SCORE);
         String conf = readdec();
-        System.out.println("Configuration content:" +conf);
+        //System.out.println("Configuration content:" +conf);
         String delims = "[,]";
         String[] Parser = conf.split(delims);
         if(Parser.length==6){
