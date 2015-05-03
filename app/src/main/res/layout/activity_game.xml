@@ -29,9 +29,9 @@
             android:layout_weight="37.57"
             android:textSize="100sp"
             android:gravity="center"
-            android:singleLine="true"
+            android:singleLine="false"
             android:textColor="#FFFFFF"
-            android:text="10 + 10 = 100"/>
+            android:text="Loading..." />
 
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"

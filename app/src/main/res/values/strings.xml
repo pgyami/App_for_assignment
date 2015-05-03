@@ -33,5 +33,6 @@
     <string name="share">Chia sẻ game thông qua: </string>
     <string name="facebook_app_id">1553104188292259</string>
     <string name="notification_content">Hôm nay bạn đã thư giãn chưa? Hãy giải trí cùng 1 + 1 = 3? nào !!</string>
+    <string name="title_activity_splash">SplashActivity</string>
 
 </resources>

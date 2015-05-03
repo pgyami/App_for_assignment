@@ -1,12 +1,20 @@
 package com.example.kuson.app_for_assignment;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.SystemClock;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by KU SON on 09/04/2015.
@@ -19,10 +27,10 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
     private boolean gameStatus = true;
     private boolean aaa = true;
     private TextView levelText,questionText;
-    private Button yesButton, noButton;
     private int roundTimeStatus = 100;
     private int extraTimeStatus = 100;
     private long extraTimeTick = (long)(Global_Variable.EXTRA_TIME*1000/Global_Variable.MAX_PROGRESSBAR);
+    private Dialog dialog;
 
     BackgroundTask(Activity _context)
     {
@@ -33,13 +41,24 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
     protected void onPreExecute(){
         super.onPreExecute();
 
+        dialog = new Dialog(context);
+        //dialog.setMessage("loading...");
+        //dialog.setTitle("LOADING...");
+        dialog.setCancelable(false);
+       // dialog.setInverseBackgroundForced(false);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        dialog.setContentView(R.layout.dialog_custom);
+/*        ImageView image = (ImageView)dialog.findViewById(R.id.dialog_imageView);
+        image.setImageResource(R.drawable.areyouready);*/
+        dialog.show();
+
         mRoundTimeBar = (ProgressBar)context.findViewById(R.id.round_time_progressBar);
         mExtraTimeBar = (ProgressBar)context.findViewById(R.id.extra_time_progressBar);
         levelText = (TextView)context.findViewById(R.id.level_text);
-        yesButton = (Button)context.findViewById(R.id.yes_button);
-        noButton = (Button)context.findViewById(R.id.no_button);
 
         mGamer = new Generate(Global_Variable.DIFFICULTY);
+
 
     }
 
@@ -113,6 +132,9 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
         if(gen_number1 + gen_number2 == gen_result)
             resultOfGamer = true;
         else resultOfGamer = false;
+
+        if(dialog.isShowing())
+            dialog.hide();
 
         if(mGamer.getNumber2()<0)
             questionText.setText(gen_number1 + " - " + String.valueOf(gen_number2).substring(1) + " = " + gen_result);
