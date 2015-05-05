@@ -42,15 +42,10 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
         super.onPreExecute();
 
         dialog = new Dialog(context);
-        //dialog.setMessage("loading...");
-        //dialog.setTitle("LOADING...");
         dialog.setCancelable(false);
-       // dialog.setInverseBackgroundForced(false);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         dialog.setContentView(R.layout.dialog_custom);
-/*        ImageView image = (ImageView)dialog.findViewById(R.id.dialog_imageView);
-        image.setImageResource(R.drawable.areyouready);*/
         dialog.show();
 
         mRoundTimeBar = (ProgressBar)context.findViewById(R.id.round_time_progressBar);
@@ -64,6 +59,7 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected Void doInBackground(Void... params){
+        SystemClock.sleep(2000);
         while (gameStatus) {
             getNextLevel();
             while (roundTimeStatus > 0) {

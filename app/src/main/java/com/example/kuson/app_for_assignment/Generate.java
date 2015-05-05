@@ -80,6 +80,8 @@ public class Generate {
         }
         result = number1 + number2 + error;
         roundTime = (long)(Global_Variable.TOTAL_TIME*1000 - (level - 1)*Global_Variable.DECREASE_TIME*1000);
+        if (roundTime < 400)
+            roundTime = 400;
         clockTick = roundTime/Global_Variable.MAX_PROGRESSBAR;
     }
 }
