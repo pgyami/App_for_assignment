@@ -113,7 +113,7 @@ public class ResultActivity extends ActionBarActivity {
     }
 
     public void showGame(View clickedButton){
-        new Sound().Other(this);//sound when click button
+        new Sound().btn_play(this);//sound when click button
         Intent activityIntent = new Intent(this, GameActivity.class);
         startActivity(activityIntent);
     }
