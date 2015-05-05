@@ -15,7 +15,7 @@
             android:id="@+id/level_text"
             android:layout_weight="10"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textSize="45sp"
             android:textColor="#FFF000"
             android:textStyle="bold"
             />
@@ -27,11 +27,12 @@
             android:textStyle="italic|bold"
             android:id="@+id/question_text"
             android:layout_weight="37.57"
-            android:textSize="60dp"
+            android:textSize="100dp"
             android:gravity="center"
             android:singleLine="false"
             android:textColor="#FFFFFF"
-            android:text="Loading..." />
+            android:text="Loading..."
+            android:textIsSelectable="false" />
 
         <ProgressBar
             style="@android:style/Widget.ProgressBar.Horizontal"
@@ -62,8 +63,8 @@
             android:layout_marginTop="24dp">
 
             <Button
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
                 android:id="@+id/yes_button"
 
                 android:onClick="trueClicked"
@@ -72,8 +73,8 @@
                 android:background="@drawable/yes"/>
 
             <Button
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
                 android:id="@+id/no_button"
                 android:onClick="falseClicked"
                 android:layout_margin="4dp"

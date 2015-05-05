@@ -31,6 +31,7 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
     private int extraTimeStatus = 100;
     private long extraTimeTick = (long)(Global_Variable.EXTRA_TIME*1000/Global_Variable.MAX_PROGRESSBAR);
     private Dialog dialog;
+    private static long TIME_DELAY = 1500;
 
     BackgroundTask(Activity _context)
     {
@@ -59,7 +60,7 @@ public class BackgroundTask extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected Void doInBackground(Void... params){
-        SystemClock.sleep(2000);
+        SystemClock.sleep(TIME_DELAY);
         while (gameStatus) {
             getNextLevel();
             while (roundTimeStatus > 0) {

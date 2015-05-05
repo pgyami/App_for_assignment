@@ -29,12 +29,11 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/hiScore_text"
-            android:layout_weight="4"
+            android:layout_weight="7"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:textSize="35sp"
-            android:textIsSelectable="false" />
+            android:textSize="50sp"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -44,8 +43,8 @@
             android:layout_weight="30">
 
             <Button
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
                 android:id="@+id/start_button"
                 android:onClick="showGame"
                 android:background="@drawable/play"
@@ -53,8 +52,8 @@
                 android:layout_gravity="center|left" />
 
             <Button
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
                 android:id="@+id/exit_button"
                 android:onClick="Exit"
                 android:layout_gravity="center|right"

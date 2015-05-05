@@ -17,15 +17,15 @@
             android:id="@+id/setting_title_text"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:textSize="30sp"
-            android:layout_weight="15"
+            android:textSize="45sp"
+            android:layout_weight="20"
             android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="13">
+            android:layout_weight="12">
 
             <TextView
                 android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 android:text="@string/time_setting_label"
                 android:id="@+id/time_setting_lable"
                 android:textColor="#FFFFFF"
-                android:textSize="25dp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <SeekBar
@@ -49,13 +49,13 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="13">
+            android:layout_weight="12">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text= "@string/adding_time_label"
-                android:textSize="25dp"
+                android:textSize="30sp"
                 android:id="@+id/extratime_setting_label"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
@@ -74,14 +74,14 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="13">
+            android:layout_weight="12">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/decrease_time_label"
                 android:text="@string/decrease_time_label"
-                android:textSize="25dp"
+                android:textSize="30sp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
@@ -96,16 +96,18 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="20">
+            android:layout_weight="15"
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/game_rank_label"
-                android:textSize="25dp"
+                android:textSize="30sp"
                 android:id="@+id/rank_game_lable"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_weight="0.25" />
 
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
@@ -116,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/easy"
-                    android:textSize="25dp"
+                    android:textSize="30sp"
                     android:onClick="onRadioButtonClicked"
                     android:id="@+id/easy_radioButton"
                     android:textColor="#FFFFFF"
@@ -127,7 +129,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/normal"
-                    android:textSize="25dp"
+                    android:textSize="30sp"
                     android:onClick="onRadioButtonClicked"
                     android:id="@+id/normal_radioButton"
                     android:textColor="#FFFFFF"
@@ -137,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/hard"
-                    android:textSize="25dp"
+                    android:textSize="30sp"
                     android:onClick="onRadioButtonClicked"
                     android:id="@+id/hard_radioButton"
                     android:textColor="#FFFFFF"
@@ -156,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/reset_hiscore_checkBox"
                 android:text="@string/reset_hiscore_label"
-                android:textSize="25dp"
+                android:textSize="30sp"
                 android:onClick="resetHiscore"
                 android:singleLine="true"
                 android:textColor="#FFFFFF"
@@ -164,15 +166,15 @@
                 android:layout_weight="5" />
 
             <Button
-                android:layout_width="200dp"
-                android:layout_height="60dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
                 android:text="@string/save_button"
                 android:id="@+id/save_button"
                 android:onClick="showMain"
                 android:layout_margin="4dp"
-                android:textSize="25sp"
-                android:layout_gravity="center"
-                android:layout_weight="3.36" />
+                android:textSize="30sp"
+                android:layout_weight="10"
+                android:layout_gravity="center" />
         </LinearLayout>
 
     </LinearLayout>
