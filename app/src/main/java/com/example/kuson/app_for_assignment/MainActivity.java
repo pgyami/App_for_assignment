@@ -281,20 +281,20 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
     private Notification getNotification(String content) {
         Intent myIntent = new Intent(this,MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(
+        PendingIntent pendingIntent = PendingIntent.getActivity(            //Cho biết Activity nào sẽ chạy khi click vào Notification
                 MainActivity.this,
                 0,
                 myIntent,
                 0);
 
-        Notification.Builder builder = new Notification.Builder(this);
-        builder.setContentTitle("1 + 1 = 3 ?");
-        builder.setContentText(content);
-        builder.setTicker("Android game: 1 + 1 = 3?");
-        builder.setDefaults(Notification.DEFAULT_SOUND);
-        builder.setContentIntent(pendingIntent);
-        builder.setAutoCancel(true);
-        builder.setSmallIcon(R.drawable.logo);
+        Notification.Builder builder = new Notification.Builder(this);      //Khởi tạo một Notification mới, cho phép tạo nội dung của nó
+        builder.setContentTitle("1 + 1 = 3 ?");                             //Tạo tên của Notification
+        builder.setContentText(content);                                    //Khởi tạo nội dung của Notification
+        builder.setTicker("Android game: 1 + 1 = 3?");                      //Tạo Ticker, hiển thị lên màn hình khi có thông báo
+        builder.setDefaults(Notification.DEFAULT_SOUND);                    //Tiếng động của thông báo
+        builder.setContentIntent(pendingIntent);                            //Thông báo nội dung nào sẽ hiển thị nếu người dùng click vào Notification
+        builder.setAutoCancel(true);                                        //Tự động tắt thông báo khi người dùng click
+        builder.setSmallIcon(R.drawable.logo);                              //Tạo logo cho Notification
         return builder.build();
 
     }

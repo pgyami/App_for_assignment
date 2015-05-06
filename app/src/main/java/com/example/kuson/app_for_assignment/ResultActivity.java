@@ -78,15 +78,9 @@ public class ResultActivity extends ActionBarActivity {
         findViewById(R.id.share_button).setOnClickListener(handler);
 
         //Facebook Share
-        //Just for test
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
-        // this part is optional
-       // shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() { ... });
-
-        //cccccccccccccccccccccccccccccc
-
     }
 
 

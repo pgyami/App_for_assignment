@@ -13,9 +13,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:layout_weight="70">
+            android:layout_height="113dp"
+            android:weightSum="2">
 
             <TextView
                 android:layout_width="0dp"
@@ -27,7 +26,8 @@
                 android:textSize="35sp"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
-                android:textStyle="italic|bold"/>
+                android:textStyle="italic|bold"
+                android:layout_marginLeft="20dp" />
 
             <TextView
                 android:layout_width="0dp"
@@ -43,9 +43,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:layout_weight="100">
+            android:layout_height="109dp"
+            android:weightSum="2">
 
             <TextView
                 android:layout_width="0dp"
@@ -57,7 +56,8 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
-                android:textStyle="italic|bold"/>
+                android:textStyle="italic|bold"
+                android:layout_marginLeft="20dp" />
 
             <TextView
                 android:layout_width="0dp"
@@ -70,7 +70,11 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="italic|bold"/>
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:weightSum="2"
+            android:layout_weight="110.78"></LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -100,7 +104,7 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="310dp"
             android:weightSum="2"
             android:orientation="horizontal"
             android:gravity="center"

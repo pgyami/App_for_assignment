@@ -50,35 +50,35 @@ public class Generate {
     }
     //Generate Math
     public void GenerateMath(){
-        int sign;       //SIGN OF NUMBER_2
-        int sign_error; //SIGN OF ERROR
-        int error = 0;
-        int randomsize; //randomsize = 20 if diff = 1 ---- randomsize = 30 if diff = 2 ----- else randomsize = 50
-        Random randomizer = new Random();
+        int sign;       //Dấu của số bên phải (P)
+        int sign_error; //Dấu của biến error
+        int error = 0;  //Khai báo biến error = 0 (sẽ thay đổi nếu như muốn tạo câu hỏi SAI)
+        int randomsize; //Khai báo khoảng cần random khi thay đổi difficult
+        Random randomizer = new Random();   //Khởi tạo đối tượng random
 
         level++;
-        if(difficult == 1) randomsize = 20;
-        else if(difficult == 2) randomsize = 30;
-        else randomsize = 50;
+        if(difficult == 1) randomsize = 20;         //Nếu difficult == 1 hàm sẽ tạo ra các số trong khoảng từ -20 tới 20
+        else if(difficult == 2) randomsize = 30;    //Nếu difficult == 2 hàm sẽ tạo ra các số trong khoảng từ -30 tới 30
+        else randomsize = 50;                       //Nếu difficult == 3 hàm sẽ tạo ra các số trong khoảng từ -50 tới 50
 
 
-        int gen_sign = randomizer.nextInt(2);   //IF 0 -> SIGN = + ELSE SIGN = -
-        if(gen_sign == 0) sign = 1;
-        else sign = -1;
+        int gen_sign = randomizer.nextInt(2);   //Random ra dấu của Số bên phải (P)
+        if(gen_sign == 0) sign = 1;             //Dấu dương (+)
+        else sign = -1;                         //Dấu âm (-)
 
         //CREATE A AND B
-        number1 = (1 + randomizer.nextInt(randomsize));
-        number2 = sign*(1 + randomizer.nextInt(randomsize));
-        int test = randomizer.nextInt(2);   //IF 0 -> FALSE // ELSE  -> TRUE
-        if(test==0){
+        number1 = (1 + randomizer.nextInt(randomsize));             //Tạo ra số bên trái (T)
+        number2 = sign*(1 + randomizer.nextInt(randomsize));        //Tạo ra số bên phải (P)
+        int test = randomizer.nextInt(2);                           //Random xem câu hỏi sẽ là ĐÚNG hay SAI
+        if(test==0){                                                //Tạo ra câu hỏi SAI
 
-            int gen_sign_x = randomizer.nextInt(2); //IF 0 -> SIGN = + ELSE SIGN = -
-            if(gen_sign_x == 0) sign_error = 1;
-            else sign_error = -1;
-            error = sign_error*(1 + randomizer.nextInt(3));
+            int gen_sign_x = randomizer.nextInt(2);                 //Random ra dấu của ERROR
+            if(gen_sign_x == 0) sign_error = 1;                     //Dấu của Error là dấu dương (+)
+            else sign_error = -1;                                   //Dấu của Error là dấu âm (-)
+            error = sign_error*(1 + randomizer.nextInt(3));         //Tạo Error trong khoảng từ [-3,3] và khác 0
 
         }
-        result = number1 + number2 + error;
+        result = number1 + number2 + error;                         //Tạo ra Số kết quả (KQ)
         roundTime = (long)(Global_Variable.TOTAL_TIME*1000 - (level - 1)*Global_Variable.DECREASE_TIME*1000);
         if (roundTime < 400)
             roundTime = 400;
