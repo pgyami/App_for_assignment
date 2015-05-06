@@ -209,7 +209,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     protected void onResume() {
         super.onResume();
         TextView highscore = (TextView) findViewById(R.id.hiScore_text);
-        highscore.setText(getString(R.string.hiscore_label)+ Global_Variable.HIGH_SCORE);
+        highscore.setText(getString(R.string.hiscore_label)+ "  " + Global_Variable.HIGH_SCORE);
 
     }
 
