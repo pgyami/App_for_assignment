@@ -162,7 +162,12 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         //0--
 
     }
-
+    @Override
+    protected void onDestroy(){
+        //to stop music
+        Intent objIntent = new Intent(this, BackgroundMusic.class);
+        stopService(objIntent);
+    }
     @Override
     public boolean dispatchTouchEvent(MotionEvent me){
         // Call onTouchEvent of SimpleGestureFilter class
@@ -255,9 +260,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
         finish();
         new Sound().Other(this);//sound when click button
-        //to stop music
-        Intent objIntent = new Intent(this, BackgroundMusic.class);
-        stopService(objIntent);
+
         System.exit(0);
 
 
