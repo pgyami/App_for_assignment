@@ -13,7 +13,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="113dp"
+            android:layout_height="100dp"
             android:weightSum="2">
 
             <TextView
@@ -22,7 +22,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Your score:"
                 android:id="@+id/result_text"
-                android:layout_weight="1"
+                android:layout_weight="1.15"
                 android:textSize="35sp"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="35sp"
                 android:id="@+id/score_text"
-                android:layout_weight="1"
+                android:layout_weight="0.85"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="italic|bold"/>
@@ -43,7 +43,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="109dp"
+            android:layout_height="100dp"
             android:weightSum="2">
 
             <TextView
@@ -53,7 +53,7 @@
                 android:text="High score:"
                 android:textSize="35sp"
                 android:id="@+id/textView"
-                android:layout_weight="1"
+                android:layout_weight="1.15"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="italic|bold"
@@ -65,16 +65,15 @@
                 android:textSize="35sp"
                 android:id="@+id/hiscore_text"
                 android:singleLine="true"
-                android:layout_weight="1"
+                android:layout_weight="0.85"
                 android:layout_gravity="center"
                 android:textColor="#FFFFFF"
                 android:textStyle="italic|bold"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:weightSum="2"
-            android:layout_weight="110.78"></LinearLayout>
+            android:layout_height="40dp"
+            android:weightSum="2"></LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
@@ -83,8 +82,8 @@
             android:gravity="center">
 
             <Button
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:onClick="showGame"
                 android:id="@+id/replay_button"
                 android:layout_margin="4dp"
@@ -92,8 +91,8 @@
                 android:background="@drawable/replay"/>
 
             <Button
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:onClick="showMain"
                 android:id="@+id/back_button"
                 android:layout_gravity="center"
@@ -104,14 +103,14 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="310dp"
+            android:layout_height="180dp"
             android:weightSum="2"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="10dp">
             <Button
-                android:layout_width="170dp"
-                android:layout_height="170dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:id="@+id/share_button"
                 android:layout_margin="4dp"
                 android:layout_gravity="center"
