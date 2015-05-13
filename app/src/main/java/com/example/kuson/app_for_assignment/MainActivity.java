@@ -167,6 +167,8 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
         //to stop music
         Intent objIntent = new Intent(this, BackgroundMusic.class);
         stopService(objIntent);
+
+        //for noti
     }
     @Override
     public boolean dispatchTouchEvent(MotionEvent me){
@@ -179,21 +181,21 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
         switch (direction) {
 
-            case SimpleGestureFilter.SWIPE_RIGHT : Toast.makeText(this, "RIGHT", Toast.LENGTH_SHORT).show();
+            case SimpleGestureFilter.SWIPE_RIGHT :// Toast.makeText(this, "RIGHT", Toast.LENGTH_SHORT).show();
                                                     if(StepToBackdoor==0) {StepToBackdoor++;break;}
                                                     if(StepToBackdoor==2) {StepToBackdoor++;break;}
                 StepToBackdoor=0;
                 break;
-            case SimpleGestureFilter.SWIPE_LEFT :  Toast.makeText(this, "LEFT", Toast.LENGTH_SHORT).show();
+            case SimpleGestureFilter.SWIPE_LEFT :  //Toast.makeText(this, "LEFT", Toast.LENGTH_SHORT).show();
                                                     if(StepToBackdoor==1) {StepToBackdoor++;break;}
                                                     if(StepToBackdoor==3) {StepToBackdoor++;break;}
                 StepToBackdoor=0;
                 break;
-            case SimpleGestureFilter.SWIPE_DOWN :  Toast.makeText(this, "DOWN", Toast.LENGTH_SHORT).show();
+            case SimpleGestureFilter.SWIPE_DOWN :  //Toast.makeText(this, "DOWN", Toast.LENGTH_SHORT).show();
                                                     if(StepToBackdoor==4) {StepToBackdoor++;break;}
                 StepToBackdoor=0;
                 break;
-            case SimpleGestureFilter.SWIPE_UP :   Toast.makeText(this, "UP", Toast.LENGTH_SHORT).show();
+            case SimpleGestureFilter.SWIPE_UP :   //Toast.makeText(this, "UP", Toast.LENGTH_SHORT).show();
                                                 if(StepToBackdoor==5) {StepToBackdoor++;break;}
                 StepToBackdoor=0;
                 break;
@@ -204,7 +206,7 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
 
     @Override
     public void onDoubleTap() {
-        Toast.makeText(this, "DCLICK", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "DCLICK", Toast.LENGTH_SHORT).show();
         if(StepToBackdoor==6) {
             Intent activityIntent = new Intent(this, SettingActivity.class);
             startActivityForResult(activityIntent, 0);}
@@ -256,7 +258,6 @@ public class MainActivity extends ActionBarActivity implements SimpleGestureList
     {
         //FOR NOTIFICATION
         scheduleNotification(getNotification(getString(R.string.notification_content)), Global_Variable.TIME_NOTIFICATION_CALL);
-
 
         finish();
         new Sound().Other(this);//sound when click button

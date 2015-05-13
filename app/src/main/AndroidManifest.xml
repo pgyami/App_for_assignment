@@ -72,7 +72,6 @@
             android:exported="true" />
 
         <receiver android:name=".NotificationPublisher" />
-
     </application>
 
 </manifest>
